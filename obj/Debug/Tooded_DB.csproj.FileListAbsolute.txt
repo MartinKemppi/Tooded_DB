@@ -1,0 +1,13 @@
+C:\Users\Matti\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.csproj.AssemblyReference.cache
+C:\Users\Matti\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.csproj.SuggestedBindingRedirects.cache
+C:\Users\Matti\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.Form1.resources
+C:\Users\Matti\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.Properties.Resources.resources
+C:\Users\Matti\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.csproj.GenerateResource.cache
+C:\Users\Matti\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.csproj.CoreCompileInputs.cache
+C:\Users\Matti\source\repos\Tooded_DB-master\bin\Debug\AppData\Tooded_AB.mdf
+C:\Users\Matti\source\repos\Tooded_DB-master\bin\Debug\AppData\Tooded_AB_log.ldf
+C:\Users\Matti\source\repos\Tooded_DB-master\bin\Debug\Tooded_DB.exe.config
+C:\Users\Matti\source\repos\Tooded_DB-master\bin\Debug\Tooded_DB.exe
+C:\Users\Matti\source\repos\Tooded_DB-master\bin\Debug\Tooded_DB.pdb
+C:\Users\Matti\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.exe
+C:\Users\Matti\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.pdb

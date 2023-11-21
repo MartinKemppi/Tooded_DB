@@ -21,8 +21,7 @@ namespace Tooded_DB
             InitializeComponent();
             NaitaKategooriad();
             NaitaAndmed();
-        }      
-          
+        }                
         public void NaitaAndmed()
         {
             connect.Open();
@@ -32,7 +31,6 @@ namespace Tooded_DB
             dataGridView1.DataSource = dt_Toode;
             connect.Close();
         }
-
         private void Lisa_Kategooria(object sender, EventArgs e)
         {
             connect.Open();
@@ -43,7 +41,21 @@ namespace Tooded_DB
             Kat_Box.Items.Clear();
             NaitaKategooriad();
         }
-
+        private void Kustuta_Kategooria(object sender, EventArgs e)
+        {
+            if (Kat_Box.SelectedItem != null)
+            {
+                string val_kat = Kat_Box.SelectedItem.ToString();
+                
+                connect.Open();
+                SqlCommand command = new SqlCommand("DELETE FROM ToodeTable WHERE Kategooria_nimetus = @kat", connect);
+                command.Parameters.AddWithValue("@kat", val_kat);
+                command.ExecuteNonQuery();
+                connect.Close();
+                Kat_Box.Items.Clear();
+                NaitaKategooriad();                
+            }
+        }
         public void NaitaKategooriad()
         {
             connect.Open();

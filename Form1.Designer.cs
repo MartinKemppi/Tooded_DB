@@ -74,6 +74,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Kustuta kategooria";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Kustuta_Kategooria);
             // 
             // button3
             // 
