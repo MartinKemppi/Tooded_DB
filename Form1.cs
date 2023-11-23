@@ -56,6 +56,32 @@ namespace Tooded_DB
                 NaitaKategooriad();                
             }
         }
+
+        private void Lisa(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Trim()!=string.Empty && textBox2.Text.Trim()!=string.Empty && textBox3.Text.Trim()!=string.Empty && Kat_Box.SelectedItem != null)
+            {
+                try
+                {
+                    connect.Open();
+                    SqlCommand command = new SqlCommand("INSERT INTO Tootetable (Toodenimetus,Kogus,Hind, Pilt, Kategooriad) VALUES(@toode, @kog, @pc,@pilt, @katID)", connect);
+                    command.Parameters.AddWithValue("@toode", textBox1.Text);
+                    command.Parameters.AddWithValue("@kog", textBox2.Text);
+                    command.Parameters.AddWithValue("@pc", textBox3.Text);
+                    command.Parameters.AddWithValue("@pilt", textBox1.Text+".jpg");
+                    command.Parameters.AddWithValue("@katID", Kat_Box.SelectedIndex);
+
+                    command.ExecuteNonQuery();
+                    connect.Close();
+                    NaitaAndmed();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Andmebaaisga viga!");
+                }
+            }
+        }
+
         public void NaitaKategooriad()
         {
             connect.Open();
