@@ -281,7 +281,9 @@ namespace Tooded_DB
             if (DGW.SelectedRows.Count > 0)
             {
                 string imageName = DGW.SelectedRows[0].Cells["Pilt"].Value.ToString();
-                string imagePath = Path.Combine(@"C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\bin\Debug\Images", imageName);
+                //Juhul kui teine arvuti kasutame teine kausta nimed e suund
+                string imagePath = //Path.Combine(@"C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\bin\Debug\Images", imageName)                    
+                                   Path.Combine(@"C:\Users\Matti\source\repos\Tooded_DB-master\bin\Debug\Images", imageName);
 
                 if (File.Exists(imagePath))
                 {
