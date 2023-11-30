@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,11 +18,14 @@ namespace Tooded_DB
         SqlDataAdapter adapter_toode, adapter_kategooria;
         SqlCommand command;
         int Id;
+        OpenFileDialog open;
+        SaveFileDialog save;
         public Form1()
         {
             InitializeComponent();
             NaitaKategooriad();
             NaitaAndmed();
+            DGW.SelectionChanged += DGW_Pilt;
         }                
         private void Lisa_Kategooria(object sender, EventArgs e)
         {
@@ -109,42 +113,26 @@ namespace Tooded_DB
             DataTable dt_Toode = new DataTable();
             adapter_toode = new SqlDataAdapter("SELECT TT.Id, TT.Toodenimetus, TT.Kogus, TT.Hind, TT.Pilt, TD.Kategooria_nimetus as Kategooriad FROM TooteTable TT INNER JOIN Toodetable TD ON TT.Kategooriad = TD.Id", connect);
             adapter_toode.Fill(dt_Toode);
-
-            DataTable table = new DataTable();
-            table.Columns.Add("Id");
-            table.Columns.Add("Toodenimetus");
-            table.Columns.Add("Kogus");
-            table.Columns.Add("Hind");
-            table.Columns.Add("Pilt");
-            table.Columns.Add("Kategooriad");
-
+            DGW.Columns.Clear();
+            DGW.DataSource = dt_Toode;
+            DataGridViewComboBoxColumn combo_kat = new DataGridViewComboBoxColumn();
+            combo_kat.HeaderText = "Kategooriad";
+            combo_kat.Name = "KategooriaColumn";
+            combo_kat.DataPropertyName = "Kategooriad";
+            HashSet<string> uniqueCategories = new HashSet<string>();
             foreach (DataRow item in dt_Toode.Rows)
             {
-                table.Rows.Add(
-                    item["Id"],
-                    item["Toodenimetus"],
-                    item["Kogus"],
-                    item["Hind"],
-                    item["Pilt"],
-                    item["Kategooriad"]
-                );
-            }
-
-            DGW.DataSource = table;
-            DataGridViewComboBoxColumn dgvcb = new DataGridViewComboBoxColumn();
-            dgvcb.HeaderText = "Kategooriad";
-            dgvcb.DataPropertyName = "Kategooriad";
-            dgvcb.Name = "KategooriaColumn";
-
-            foreach (DataRow item in dt_Toode.Rows)
-            {
-                if (!dgvcb.Items.Contains(item["Kategooriad"]))
+                string category = item["Kategooriad"].ToString();
+                if (!uniqueCategories.Contains(category))
                 {
-                    dgvcb.Items.Add(item["Kategooriad"]);
+                    uniqueCategories.Add(category);
+                    combo_kat.Items.Add(category);
                 }
             }
+            DGW.Columns.Add(combo_kat);
+            DGW.Columns["Kategooriad"].Visible = false;
 
-            DGW.Columns.Add(dgvcb);
+
             connect.Close();
         }
         private void Uuenda(object sender, EventArgs e)
@@ -239,6 +227,36 @@ namespace Tooded_DB
                 MessageBox.Show("Vali rida DataGridView-l kustutamiseks");
             }
         }
+        private void OtsiFail(object sender, EventArgs e)
+        {
+            open = new OpenFileDialog();
+            open.InitialDirectory = @"C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\bin\Debug\Images";
+            open.Multiselect= true;
+            open.Filter = "Images Files(*.jpeg;*.jpg;*.bmp;*.png)|*.jpeg;*.jpg;*.bmp;*.png";
+            
+            //FileInfo open_info = new FileInfo(@"C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\bin\Debug\Images"+open.FileName);
+            if(open.ShowDialog()== DialogResult.OK && Toodenimetus.Text!=null)
+            {
+                save = new SaveFileDialog();
+                save.InitialDirectory = Path.GetFullPath(@"..\..\..Images");
+                save.FileName=Toodenimetus.Text+Path.GetExtension(open.FileName);
+                save.Filter="Images"+Path.GetExtension(open.FileName)+"|"+Path.GetExtension(open.FileName);
+                if(save.ShowDialog()==DialogResult.OK)
+                {
+                    File.Copy(open.FileName, save.FileName);
+                    Image img = Image.FromFile(save.FileName);
+                    pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pb.ClientSize = new Size(150,150);
+                    pb.Image = (Image)(new Bitmap(img, pb.ClientSize));
+                    //pb.Image=Image.FromFile(save.FileName);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Puudub toodenimetus või oli vajutatud Cancel");
+            }
+        }
+
         public void NaitaKategooriad()
         {
             Kat_Box.Items.Clear();
@@ -256,6 +274,32 @@ namespace Tooded_DB
                 }
             }
             connect.Close();
+        }
+
+        private void DGW_Pilt(object sender, EventArgs e)
+        {
+            if (DGW.SelectedRows.Count > 0)
+            {
+                string imageName = DGW.SelectedRows[0].Cells["Pilt"].Value.ToString();
+                string imagePath = Path.Combine(@"C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\bin\Debug\Images", imageName);
+
+                if (File.Exists(imagePath))
+                {
+                    Image img = Image.FromFile(imagePath);
+
+                    pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pb.ClientSize = new Size(150,150);
+                    pb.Image = (Image)(new Bitmap(img, pb.ClientSize));
+                }
+                else
+                {
+                    MessageBox.Show($"Pilt '{imageName}' ei ole leitud.");
+                }
+            }
+            else
+            {
+                pb.Image = null;
+            }
         }
     }
 }

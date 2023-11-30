@@ -43,9 +43,9 @@
             this.Kogus = new System.Windows.Forms.TextBox();
             this.Hind = new System.Windows.Forms.TextBox();
             this.Kat_Box = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pb = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGW)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb)).BeginInit();
             this.SuspendLayout();
             // 
             // DGW
@@ -84,6 +84,7 @@
             this.button3.TabIndex = 3;
             this.button3.Text = "Otsi fail";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.OtsiFail);
             // 
             // button4
             // 
@@ -180,20 +181,20 @@
             this.Kat_Box.Size = new System.Drawing.Size(123, 21);
             this.Kat_Box.TabIndex = 14;
             // 
-            // pictureBox1
+            // pb
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(468, 25);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(156, 124);
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
+            this.pb.Location = new System.Drawing.Point(468, 25);
+            this.pb.Name = "pb";
+            this.pb.Size = new System.Drawing.Size(150, 150);
+            this.pb.TabIndex = 15;
+            this.pb.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pb);
             this.Controls.Add(this.Kat_Box);
             this.Controls.Add(this.Hind);
             this.Controls.Add(this.Kogus);
@@ -212,7 +213,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.DGW)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,7 +236,7 @@
         private System.Windows.Forms.TextBox Kogus;
         private System.Windows.Forms.TextBox Hind;
         private System.Windows.Forms.ComboBox Kat_Box;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pb;
     }
 }
 
