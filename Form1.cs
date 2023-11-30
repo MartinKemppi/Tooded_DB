@@ -26,19 +26,19 @@ namespace Tooded_DB
             NaitaKategooriad();
             NaitaAndmed();
             DGW.SelectionChanged += DGW_Pilt;
-        }                
+        }
         private void Lisa_Kategooria(object sender, EventArgs e)
         {
             bool on = false;
-            foreach(var item in Kat_Box.Items)
+            foreach (var item in Kat_Box.Items)
             {
-                if (item.ToString()==Kat_Box.Text)
+                if (item.ToString() == Kat_Box.Text)
                 {
                     on = true;
                     MessageBox.Show("Kategooria on juba olemas");
                 }
             }
-            if(on==false)
+            if (on == false)
             {
                 connect.Open();
                 command = new SqlCommand("INSERT INTO ToodeTable(Kategooria_nimetus) VALUES (@kat)", connect);
@@ -47,26 +47,26 @@ namespace Tooded_DB
                 connect.Close();
                 Kat_Box.Items.Clear();
                 NaitaKategooriad();
-            }            
+            }
         }
         private void Kustuta_Kategooria(object sender, EventArgs e)
         {
             if (Kat_Box.SelectedItem != null)
             {
                 string val_kat = Kat_Box.SelectedItem.ToString();
-                
+
                 connect.Open();
                 command = new SqlCommand("DELETE FROM ToodeTable WHERE Kategooria_nimetus = @kat", connect);
                 command.Parameters.AddWithValue("@kat", val_kat);
                 command.ExecuteNonQuery();
                 connect.Close();
                 Kat_Box.Items.Clear();
-                NaitaKategooriad();                
+                NaitaKategooriad();
             }
         }
         private void Lisa(object sender, EventArgs e)
         {
-            if (Toodenimetus.Text.Trim()!=string.Empty && Kogus.Text.Trim()!=string.Empty && Hind.Text.Trim()!=string.Empty && Kat_Box.SelectedItem != null)
+            if (Toodenimetus.Text.Trim() != string.Empty && Kogus.Text.Trim() != string.Empty && Hind.Text.Trim() != string.Empty && Kat_Box.SelectedItem != null)
             {
                 try
                 {
@@ -101,7 +101,7 @@ namespace Tooded_DB
                         connect.Close();
                     }
                 }
-            }           
+            }
             else
             {
                 MessageBox.Show("Sisesta andmed!");
@@ -158,7 +158,7 @@ namespace Tooded_DB
                     command = new SqlCommand("SELECT Id FROM ToodeTable WHERE Kategooria_nimetus = @kat", connect);
                     command.Parameters.AddWithValue("@kat", UUS_Kategooria);
                     int kategooriaId = Convert.ToInt32(command.ExecuteScalar());
-                    
+
                     command = new SqlCommand("UPDATE Tootetable SET Toodenimetus = @toode, Kogus = @kog, Hind = @pc, Pilt = @pilt, Kategooriad = @katID WHERE Id = @id", connect);
                     command.Parameters.AddWithValue("@toode", UUS_ToodeNimetus);
                     command.Parameters.AddWithValue("@kog", UUS_Kogus);
@@ -231,22 +231,22 @@ namespace Tooded_DB
         {
             open = new OpenFileDialog();
             open.InitialDirectory = @"C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\bin\Debug\Images";
-            open.Multiselect= true;
+            open.Multiselect = true;
             open.Filter = "Images Files(*.jpeg;*.jpg;*.bmp;*.png)|*.jpeg;*.jpg;*.bmp;*.png";
-            
+
             //FileInfo open_info = new FileInfo(@"C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\bin\Debug\Images"+open.FileName);
-            if(open.ShowDialog()== DialogResult.OK && Toodenimetus.Text!=null)
+            if (open.ShowDialog() == DialogResult.OK && Toodenimetus.Text != null)
             {
                 save = new SaveFileDialog();
                 save.InitialDirectory = Path.GetFullPath(@"..\..\..Images");
-                save.FileName=Toodenimetus.Text+Path.GetExtension(open.FileName);
-                save.Filter="Images"+Path.GetExtension(open.FileName)+"|"+Path.GetExtension(open.FileName);
-                if(save.ShowDialog()==DialogResult.OK)
+                save.FileName = Toodenimetus.Text + Path.GetExtension(open.FileName);
+                save.Filter = "Images" + Path.GetExtension(open.FileName) + "|" + Path.GetExtension(open.FileName);
+                if (save.ShowDialog() == DialogResult.OK)
                 {
                     File.Copy(open.FileName, save.FileName);
                     Image img = Image.FromFile(save.FileName);
                     pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                    pb.ClientSize = new Size(150,150);
+                    pb.ClientSize = new Size(150, 150);
                     pb.Image = (Image)(new Bitmap(img, pb.ClientSize));
                     //pb.Image=Image.FromFile(save.FileName);
                 }
@@ -290,7 +290,7 @@ namespace Tooded_DB
                     Image img = Image.FromFile(imagePath);
 
                     pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                    pb.ClientSize = new Size(150,150);
+                    pb.ClientSize = new Size(150, 150);
                     pb.Image = (Image)(new Bitmap(img, pb.ClientSize));
                 }
                 else
