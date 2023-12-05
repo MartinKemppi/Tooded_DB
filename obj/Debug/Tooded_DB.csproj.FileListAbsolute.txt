@@ -17,7 +17,6 @@ C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\bin\Debug\Tooded_DB.
 C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\bin\Debug\Tooded_DB.pdb
 C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\obj\Debug\Tooded_DB.csproj.AssemblyReference.cache
 C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\obj\Debug\Tooded_DB.csproj.SuggestedBindingRedirects.cache
-C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\obj\Debug\Tooded_DB.Form1.resources
 C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\obj\Debug\Tooded_DB.Properties.Resources.resources
 C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\obj\Debug\Tooded_DB.csproj.GenerateResource.cache
 C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\obj\Debug\Tooded_DB.csproj.CoreCompileInputs.cache
@@ -26,3 +25,5 @@ C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\obj\Debug\Tooded_DB.
 C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\bin\Debug\AppData\Tooded_AB.mdf
 C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\obj\Debug\Tooded_DB.Login.resources
 C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\obj\Debug\Tooded_DB.Registreerimine.resources
+C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\obj\Debug\Tooded_DB.Admin.resources
+C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\obj\Debug\Tooded_DB.Meeldtetuletamine.resources
