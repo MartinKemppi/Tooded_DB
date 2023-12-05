@@ -24,3 +24,5 @@ C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\obj\Debug\Tooded_DB.
 C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\obj\Debug\Tooded_DB.exe
 C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\obj\Debug\Tooded_DB.pdb
 C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\bin\Debug\AppData\Tooded_AB.mdf
+C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\obj\Debug\Tooded_DB.Login.resources
+C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\obj\Debug\Tooded_DB.Registreerimine.resources

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -70,29 +71,42 @@ namespace Tooded_DB
             {
                 try
                 {
-                    if (connect.State == ConnectionState.Closed)
+                    open = new OpenFileDialog();
+                    open.InitialDirectory = @"..\..\Images";
+                    open.Multiselect = false;
+                    open.Filter = "Images Files(*.jpeg;*.png;*.jpg;*.bmp)|*.jpeg;*.png;*.jpg;*.bmp";
+
+                    if (open.ShowDialog() == DialogResult.OK)
                     {
                         connect.Open();
+
+                        command = new SqlCommand("SELECT Id FROM ToodeTable WHERE Kategooria_nimetus=@kat", connect);
+                        command.Parameters.AddWithValue("@kat", Kat_Box.Text);
+                        command.ExecuteNonQuery();
+                        Id = Convert.ToInt32(command.ExecuteScalar());
+
+                        string imageFileName = Path.GetFileName(open.FileName);
+
+                        pb.Image = null;
+
+                        string imageDestinationPath = Path.Combine(@"..\..\Images", imageFileName);
+                        File.Copy(open.FileName, imageDestinationPath, true);
+
+                        command = new SqlCommand("INSERT INTO Tootetable (Toodenimetus,Kogus,Hind, Pilt, Kategooriad) VALUES(@toode, @kog, @pc, @pilt, @katID)", connect);
+                        command.Parameters.AddWithValue("@toode", Toodenimetus.Text);
+                        command.Parameters.Add("@kog", SqlDbType.Int).Value = int.Parse(Kogus.Text);
+                        command.Parameters.Add("@pc", SqlDbType.Float).Value = float.Parse(Hind.Text);
+                        command.Parameters.AddWithValue("@pilt", imageFileName);
+                        command.Parameters.AddWithValue("@katID", Id);
+                        
+                        command.ExecuteNonQuery();
+                        connect.Close();
+                        NaitaAndmed();
                     }
-                    command = new SqlCommand("SELECT Id FROM ToodeTable WHERE Kategooria_nimetus=@kat", connect);
-                    command.Parameters.AddWithValue("@kat", Kat_Box.Text);
-                    command.ExecuteNonQuery();
-                    Id = Convert.ToInt32(command.ExecuteScalar());
-
-                    command = new SqlCommand("INSERT INTO Tootetable (Toodenimetus,Kogus,Hind, Pilt, Kategooriad) VALUES(@toode, @kog, @pc, @pilt, @katID)", connect);
-                    command.Parameters.AddWithValue("@toode", Toodenimetus.Text);
-                    command.Parameters.Add("@kog", SqlDbType.Int).Value = int.Parse(Kogus.Text);
-                    command.Parameters.Add("@pc", SqlDbType.Float).Value = float.Parse(Hind.Text);
-                    command.Parameters.AddWithValue("@pilt", Toodenimetus.Text + ".jpg");
-                    command.Parameters.AddWithValue("@katID", Id);
-                    command.ExecuteNonQuery();
-
-                    connect.Close();
-                    NaitaAndmed();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Andmebaaisiga viga!");
+                    MessageBox.Show($"Andmebaasiga viga: {ex.Message}");
                 }
                 finally
                 {
@@ -140,47 +154,67 @@ namespace Tooded_DB
             if (DGW.SelectedRows.Count > 0)
             {
                 DataGridViewRow val_rida = DGW.SelectedRows[0];
-
-                string UUS_ToodeNimetus = Toodenimetus.Text;
-                int UUS_Kogus = int.Parse(Kogus.Text);
-                float UUS_Hind = float.Parse(Hind.Text);
-                string UUS_Pilt = Toodenimetus.Text + ".jpg";
-                string UUS_Kategooria = Kat_Box.SelectedItem.ToString();
-
                 int val_rida_ID = Convert.ToInt32(val_rida.Cells["Id"].Value);
 
-                try
+                if (Toodenimetus.Text.Trim() != string.Empty && Kogus.Text.Trim() != string.Empty && Hind.Text.Trim() != string.Empty && Kat_Box.SelectedItem != null)
                 {
-                    if (connect.State == ConnectionState.Closed)
-                    {
-                        connect.Open();
-                    }
-                    command = new SqlCommand("SELECT Id FROM ToodeTable WHERE Kategooria_nimetus = @kat", connect);
-                    command.Parameters.AddWithValue("@kat", UUS_Kategooria);
-                    int kategooriaId = Convert.ToInt32(command.ExecuteScalar());
+                    OpenFileDialog open = new OpenFileDialog();
+                    open.InitialDirectory = @"..\..\Images";
+                    open.Multiselect = false;
+                    open.Filter = "Images Files(*.jpeg;*.png;*.jpg;*.bmp)|*.jpeg;*.png;*.jpg;*.bmp";
 
-                    command = new SqlCommand("UPDATE Tootetable SET Toodenimetus = @toode, Kogus = @kog, Hind = @pc, Pilt = @pilt, Kategooriad = @katID WHERE Id = @id", connect);
-                    command.Parameters.AddWithValue("@toode", UUS_ToodeNimetus);
-                    command.Parameters.AddWithValue("@kog", UUS_Kogus);
-                    command.Parameters.AddWithValue("@pc", UUS_Hind);
-                    command.Parameters.AddWithValue("@pilt", UUS_Pilt);
-                    command.Parameters.AddWithValue("@katID", kategooriaId);
-                    command.Parameters.AddWithValue("@id", val_rida_ID);
-
-                    command.ExecuteNonQuery();
-                    connect.Close();
-                    NaitaAndmed();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Probleem tekkis uuendamisel: " + ex.Message);
-                }
-                finally
-                {
-                    if (connect.State == ConnectionState.Open)
+                    if (open.ShowDialog() == DialogResult.OK)
                     {
-                        connect.Close();
+                        string imageFileName = Path.GetFileName(open.FileName);
+
+                        string UUS_ToodeNimetus = Toodenimetus.Text;
+                        int UUS_Kogus = int.Parse(Kogus.Text);
+                        float UUS_Hind = float.Parse(Hind.Text);
+                        string UUS_Pilt = imageFileName;
+                        string UUS_Kategooria = Kat_Box.SelectedItem.ToString();
+
+                        try
+                        {
+                            if (connect.State == ConnectionState.Closed)
+                            {
+                                connect.Open();
+                            }
+                            command = new SqlCommand("SELECT Id FROM ToodeTable WHERE Kategooria_nimetus = @kat", connect);
+                            command.Parameters.AddWithValue("@kat", UUS_Kategooria);
+                            int kategooriaId = Convert.ToInt32(command.ExecuteScalar());
+
+                            command = new SqlCommand("UPDATE Tootetable SET Toodenimetus = @toode, Kogus = @kog, Hind = @pc, Pilt = @pilt, Kategooriad = @katID WHERE Id = @id", connect);
+                            command.Parameters.AddWithValue("@toode", UUS_ToodeNimetus);
+                            command.Parameters.AddWithValue("@kog", UUS_Kogus);
+                            command.Parameters.AddWithValue("@pc", UUS_Hind);
+                            command.Parameters.AddWithValue("@pilt", UUS_Pilt);
+                            command.Parameters.AddWithValue("@katID", kategooriaId);
+                            command.Parameters.AddWithValue("@id", val_rida_ID);
+
+                            command.ExecuteNonQuery();
+                            connect.Close();
+                            NaitaAndmed();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Probleem tekkis uuendamisel: " + ex.Message);
+                        }
+                        finally
+                        {
+                            if (connect.State == ConnectionState.Open)
+                            {
+                                connect.Close();
+                            }
+                        }
                     }
+                    else
+                    {
+                        MessageBox.Show("Vali pilt!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Sisesta andmed!");
                 }
             }
             else
@@ -230,11 +264,10 @@ namespace Tooded_DB
         private void OtsiFail(object sender, EventArgs e)
         {
             open = new OpenFileDialog();
-            open.InitialDirectory = @"C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\bin\Debug\Images";
+            open.InitialDirectory = @"..\..\Images";
             open.Multiselect = true;
             open.Filter = "Images Files(*.jpeg;*.jpg;*.bmp;*.png)|*.jpeg;*.jpg;*.bmp;*.png";
 
-            //FileInfo open_info = new FileInfo(@"C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\bin\Debug\Images"+open.FileName);
             if (open.ShowDialog() == DialogResult.OK && Toodenimetus.Text != null)
             {
                 save = new SaveFileDialog();
@@ -247,7 +280,7 @@ namespace Tooded_DB
                     Image img = Image.FromFile(save.FileName);
                     pb.SizeMode = PictureBoxSizeMode.StretchImage;
                     pb.ClientSize = new Size(150, 150);
-                    pb.Image = (Image)(new Bitmap(img, pb.ClientSize));
+                    pb.Image = (Image)(new Bitmap(img, pb.ClientSize));                   
                     //pb.Image=Image.FromFile(save.FileName);
                 }
             }
@@ -256,7 +289,6 @@ namespace Tooded_DB
                 MessageBox.Show("Puudub toodenimetus või oli vajutatud Cancel");
             }
         }
-
         public void NaitaKategooriad()
         {
             Kat_Box.Items.Clear();
@@ -275,15 +307,12 @@ namespace Tooded_DB
             }
             connect.Close();
         }
-
         private void DGW_Pilt(object sender, EventArgs e)
         {
             if (DGW.SelectedRows.Count > 0)
             {
                 string imageName = DGW.SelectedRows[0].Cells["Pilt"].Value.ToString();
-                //Juhul kui teine arvuti kasutame teine kausta nimed e suund
-                string imagePath = //Path.Combine(@"C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\bin\Debug\Images", imageName)                    
-                                   Path.Combine(@"C:\Users\Matti\source\repos\Tooded_DB-master\bin\Debug\Images", imageName);
+                string imagePath = Path.Combine(Path.GetFullPath(@"..\..\Images"), imageName);                                            
 
                 if (File.Exists(imagePath))
                 {
@@ -302,6 +331,6 @@ namespace Tooded_DB
             {
                 pb.Image = null;
             }
-        }
+        }        
     }
 }
