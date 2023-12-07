@@ -28,32 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.salasona_txt = new System.Windows.Forms.TextBox();
+            this.login_txt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pood_logo = new System.Windows.Forms.PictureBox();
+            this.unustasin_btn = new System.Windows.Forms.Button();
+            this.loouuuskasutaja_btn = new System.Windows.Forms.Button();
+            this.login_btn = new System.Windows.Forms.Button();
+            this.logikylalisena = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pood_logo)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // salasona_txt
             // 
-            this.textBox1.Location = new System.Drawing.Point(268, 204);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(236, 20);
-            this.textBox1.TabIndex = 0;
+            this.salasona_txt.Location = new System.Drawing.Point(268, 204);
+            this.salasona_txt.Name = "salasona_txt";
+            this.salasona_txt.PasswordChar = '*';
+            this.salasona_txt.Size = new System.Drawing.Size(236, 20);
+            this.salasona_txt.TabIndex = 0;
             // 
-            // textBox2
+            // login_txt
             // 
-            this.textBox2.Location = new System.Drawing.Point(268, 178);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(236, 20);
-            this.textBox2.TabIndex = 1;
+            this.login_txt.Location = new System.Drawing.Point(268, 178);
+            this.login_txt.Name = "login_txt";
+            this.login_txt.PasswordChar = '*';
+            this.login_txt.Size = new System.Drawing.Size(236, 20);
+            this.login_txt.TabIndex = 1;
             // 
             // label1
             // 
@@ -73,57 +74,71 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Salasõna";
             // 
-            // pictureBox1
+            // pood_logo
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(268, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(236, 128);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.pood_logo.Location = new System.Drawing.Point(268, 12);
+            this.pood_logo.Name = "pood_logo";
+            this.pood_logo.Size = new System.Drawing.Size(236, 128);
+            this.pood_logo.TabIndex = 4;
+            this.pood_logo.TabStop = false;
             // 
-            // button1
+            // unustasin_btn
             // 
-            this.button1.Location = new System.Drawing.Point(268, 245);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 40);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Unustasin salasõna";
-            this.button1.UseVisualStyleBackColor = true;
+            this.unustasin_btn.Location = new System.Drawing.Point(218, 230);
+            this.unustasin_btn.Name = "unustasin_btn";
+            this.unustasin_btn.Size = new System.Drawing.Size(104, 40);
+            this.unustasin_btn.TabIndex = 5;
+            this.unustasin_btn.Text = "Unustasin salasõna";
+            this.unustasin_btn.UseVisualStyleBackColor = true;
+            this.unustasin_btn.Click += new System.EventHandler(this.unustasin_btn_Click);
             // 
-            // button2
+            // loouuuskasutaja_btn
             // 
-            this.button2.Location = new System.Drawing.Point(400, 245);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(104, 40);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Loo uus kasutaja";
-            this.button2.UseVisualStyleBackColor = true;
+            this.loouuuskasutaja_btn.Location = new System.Drawing.Point(328, 230);
+            this.loouuuskasutaja_btn.Name = "loouuuskasutaja_btn";
+            this.loouuuskasutaja_btn.Size = new System.Drawing.Size(104, 40);
+            this.loouuuskasutaja_btn.TabIndex = 6;
+            this.loouuuskasutaja_btn.Text = "Loo uus kasutaja";
+            this.loouuuskasutaja_btn.UseVisualStyleBackColor = true;
+            this.loouuuskasutaja_btn.Click += new System.EventHandler(this.loouuuskasutaja_btn_Click);
             // 
-            // button3
+            // login_btn
             // 
-            this.button3.Location = new System.Drawing.Point(510, 178);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(53, 46);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Login";
-            this.button3.UseVisualStyleBackColor = true;
+            this.login_btn.Location = new System.Drawing.Point(510, 178);
+            this.login_btn.Name = "login_btn";
+            this.login_btn.Size = new System.Drawing.Size(53, 46);
+            this.login_btn.TabIndex = 7;
+            this.login_btn.Text = "Login";
+            this.login_btn.UseVisualStyleBackColor = true;
+            this.login_btn.Click += new System.EventHandler(this.login_btn_Click);
+            // 
+            // logikylalisena
+            // 
+            this.logikylalisena.Location = new System.Drawing.Point(438, 230);
+            this.logikylalisena.Name = "logikylalisena";
+            this.logikylalisena.Size = new System.Drawing.Size(104, 40);
+            this.logikylalisena.TabIndex = 8;
+            this.logikylalisena.Text = "Logi külalisena";
+            this.logikylalisena.UseVisualStyleBackColor = true;
+            this.logikylalisena.Click += new System.EventHandler(this.logikylalisena_Click);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(804, 303);
+            this.Controls.Add(this.logikylalisena);
+            this.Controls.Add(this.login_btn);
+            this.Controls.Add(this.loouuuskasutaja_btn);
+            this.Controls.Add(this.unustasin_btn);
+            this.Controls.Add(this.pood_logo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.login_txt);
+            this.Controls.Add(this.salasona_txt);
             this.Name = "Login";
             this.Text = "Form2";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pood_logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,13 +146,14 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox salasona_txt;
+        private System.Windows.Forms.TextBox login_txt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.PictureBox pood_logo;
+        private System.Windows.Forms.Button unustasin_btn;
+        private System.Windows.Forms.Button loouuuskasutaja_btn;
+        private System.Windows.Forms.Button login_btn;
+        private System.Windows.Forms.Button logikylalisena;
     }
 }

@@ -27,3 +27,6 @@ C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\obj\Debug\Tooded_DB.
 C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\obj\Debug\Tooded_DB.Registreerimine.resources
 C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\obj\Debug\Tooded_DB.Admin.resources
 C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\obj\Debug\Tooded_DB.Meeldtetuletamine.resources
+C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\obj\Debug\Tooded_DB.Pood.resources
+C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\obj\Debug\Tooded_DB.Esileht.resources
+C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\obj\Debug\Tooded_DB.Kassa.resources

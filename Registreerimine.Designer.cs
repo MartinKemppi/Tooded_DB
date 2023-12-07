@@ -28,37 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Nimi = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Perenimi = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.email = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.salasona = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.paev_kat_box = new System.Windows.Forms.ComboBox();
+            this.kuu_kat_box = new System.Windows.Forms.ComboBox();
+            this.aasta_kat_box = new System.Windows.Forms.ComboBox();
+            this.Loo_btn = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.aadress = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.linn_kat_box = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.telefon = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.login = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // textBox1
+            // Nimi
             // 
-            this.textBox1.Location = new System.Drawing.Point(169, 78);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(222, 20);
-            this.textBox1.TabIndex = 0;
+            this.Nimi.Location = new System.Drawing.Point(169, 78);
+            this.Nimi.Name = "Nimi";
+            this.Nimi.Size = new System.Drawing.Size(222, 20);
+            this.Nimi.TabIndex = 0;
             // 
             // label1
             // 
@@ -78,12 +78,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Perenimi";
             // 
-            // textBox2
+            // Perenimi
             // 
-            this.textBox2.Location = new System.Drawing.Point(169, 104);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(222, 20);
-            this.textBox2.TabIndex = 3;
+            this.Perenimi.Location = new System.Drawing.Point(169, 104);
+            this.Perenimi.Name = "Perenimi";
+            this.Perenimi.Size = new System.Drawing.Size(222, 20);
+            this.Perenimi.TabIndex = 3;
             // 
             // label3
             // 
@@ -94,12 +94,12 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Email";
             // 
-            // textBox3
+            // email
             // 
-            this.textBox3.Location = new System.Drawing.Point(169, 210);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(221, 20);
-            this.textBox3.TabIndex = 5;
+            this.email.Location = new System.Drawing.Point(169, 210);
+            this.email.Name = "email";
+            this.email.Size = new System.Drawing.Size(221, 20);
+            this.email.TabIndex = 5;
             // 
             // label4
             // 
@@ -110,12 +110,13 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Salasõna";
             // 
-            // textBox4
+            // salasona
             // 
-            this.textBox4.Location = new System.Drawing.Point(169, 290);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(221, 20);
-            this.textBox4.TabIndex = 7;
+            this.salasona.Location = new System.Drawing.Point(169, 290);
+            this.salasona.Name = "salasona";
+            this.salasona.PasswordChar = '*';
+            this.salasona.Size = new System.Drawing.Size(221, 20);
+            this.salasona.TabIndex = 7;
             // 
             // checkBox1
             // 
@@ -145,38 +146,38 @@
             this.label8.TabIndex = 15;
             this.label8.Text = "Sünnipäev";
             // 
-            // comboBox1
+            // paev_kat_box
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(169, 130);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(52, 21);
-            this.comboBox1.TabIndex = 16;
+            this.paev_kat_box.FormattingEnabled = true;
+            this.paev_kat_box.Location = new System.Drawing.Point(169, 130);
+            this.paev_kat_box.Name = "paev_kat_box";
+            this.paev_kat_box.Size = new System.Drawing.Size(52, 21);
+            this.paev_kat_box.TabIndex = 16;
             // 
-            // comboBox2
+            // kuu_kat_box
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(228, 130);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(99, 21);
-            this.comboBox2.TabIndex = 17;
+            this.kuu_kat_box.FormattingEnabled = true;
+            this.kuu_kat_box.Location = new System.Drawing.Point(228, 130);
+            this.kuu_kat_box.Name = "kuu_kat_box";
+            this.kuu_kat_box.Size = new System.Drawing.Size(99, 21);
+            this.kuu_kat_box.TabIndex = 17;
             // 
-            // comboBox3
+            // aasta_kat_box
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(333, 130);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(58, 21);
-            this.comboBox3.TabIndex = 18;
+            this.aasta_kat_box.FormattingEnabled = true;
+            this.aasta_kat_box.Location = new System.Drawing.Point(333, 130);
+            this.aasta_kat_box.Name = "aasta_kat_box";
+            this.aasta_kat_box.Size = new System.Drawing.Size(58, 21);
+            this.aasta_kat_box.TabIndex = 18;
             // 
-            // button1
+            // Loo_btn
             // 
-            this.button1.Location = new System.Drawing.Point(169, 325);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(220, 48);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Loo uus kasutaja";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Loo_btn.Location = new System.Drawing.Point(169, 325);
+            this.Loo_btn.Name = "Loo_btn";
+            this.Loo_btn.Size = new System.Drawing.Size(220, 48);
+            this.Loo_btn.TabIndex = 19;
+            this.Loo_btn.Text = "Loo uus kasutaja";
+            this.Loo_btn.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -187,12 +188,12 @@
             this.label6.TabIndex = 21;
             this.label6.Text = "Aadress";
             // 
-            // textBox5
+            // aadress
             // 
-            this.textBox5.Location = new System.Drawing.Point(169, 184);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(220, 20);
-            this.textBox5.TabIndex = 22;
+            this.aadress.Location = new System.Drawing.Point(169, 184);
+            this.aadress.Name = "aadress";
+            this.aadress.Size = new System.Drawing.Size(220, 20);
+            this.aadress.TabIndex = 22;
             // 
             // label9
             // 
@@ -203,13 +204,13 @@
             this.label9.TabIndex = 23;
             this.label9.Text = "Linn";
             // 
-            // comboBox5
+            // linn_kat_box
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(169, 157);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(222, 21);
-            this.comboBox5.TabIndex = 24;
+            this.linn_kat_box.FormattingEnabled = true;
+            this.linn_kat_box.Location = new System.Drawing.Point(169, 157);
+            this.linn_kat_box.Name = "linn_kat_box";
+            this.linn_kat_box.Size = new System.Drawing.Size(222, 21);
+            this.linn_kat_box.TabIndex = 24;
             // 
             // label10
             // 
@@ -220,12 +221,12 @@
             this.label10.TabIndex = 25;
             this.label10.Text = "Telefon";
             // 
-            // textBox6
+            // telefon
             // 
-            this.textBox6.Location = new System.Drawing.Point(169, 236);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(221, 20);
-            this.textBox6.TabIndex = 26;
+            this.telefon.Location = new System.Drawing.Point(169, 236);
+            this.telefon.Name = "telefon";
+            this.telefon.Size = new System.Drawing.Size(221, 20);
+            this.telefon.TabIndex = 26;
             // 
             // label5
             // 
@@ -236,41 +237,41 @@
             this.label5.TabIndex = 27;
             this.label5.Text = "Login";
             // 
-            // textBox7
+            // login
             // 
-            this.textBox7.Location = new System.Drawing.Point(170, 262);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(221, 20);
-            this.textBox7.TabIndex = 28;
+            this.login.Location = new System.Drawing.Point(170, 262);
+            this.login.Name = "login";
+            this.login.Size = new System.Drawing.Size(221, 20);
+            this.login.TabIndex = 28;
             // 
             // Registreerimine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox7);
+            this.ClientSize = new System.Drawing.Size(538, 450);
+            this.Controls.Add(this.login);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.telefon);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.comboBox5);
+            this.Controls.Add(this.linn_kat_box);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.aadress);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.Loo_btn);
+            this.Controls.Add(this.aasta_kat_box);
+            this.Controls.Add(this.kuu_kat_box);
+            this.Controls.Add(this.paev_kat_box);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.salasona);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.email);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.Perenimi);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Nimi);
             this.Name = "Registreerimine";
             this.Text = "Form2";
             this.ResumeLayout(false);
@@ -280,28 +281,28 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Nimi;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Perenimi;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox salasona;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox paev_kat_box;
+        private System.Windows.Forms.ComboBox kuu_kat_box;
+        private System.Windows.Forms.ComboBox aasta_kat_box;
+        private System.Windows.Forms.Button Loo_btn;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox aadress;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox linn_kat_box;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox telefon;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox login;
     }
 }

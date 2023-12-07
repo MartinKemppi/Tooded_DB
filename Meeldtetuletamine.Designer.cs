@@ -68,16 +68,16 @@
             this.button1.Text = "Saada";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // Maletamine
+            // Meeldtetuletamine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(683, 126);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Maletamine";
+            this.Name = "Meeldtetuletamine";
             this.Text = "Form2";
             this.ResumeLayout(false);
             this.PerformLayout();
