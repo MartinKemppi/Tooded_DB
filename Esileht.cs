@@ -16,11 +16,6 @@ namespace Tooded_DB
         public Esileht()
         {
             InitializeComponent();
-
-            pb_logo_pood.Image = new Bitmap("../../../Selver_logo.png");
-            pb_logo_pood.Size = new Size(150,150);
-            pb_logo_pood.SizeMode = PictureBoxSizeMode.Zoom;
-            pb_logo_pood.BorderStyle = BorderStyle.Fixed3D;
         }
 
         private void button1_Click(object sender, EventArgs e)

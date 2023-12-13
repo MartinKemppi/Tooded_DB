@@ -40,7 +40,14 @@ namespace Tooded_DB
             if(login_txt.Text.Trim() != string.Empty && salasona_txt.Text.Trim() != string.Empty)
                 try
                 {
+                    if(login_txt.Text=="Admin" && salasona_txt.Text == "Admin")
+                    {
+                        Admin_Klient admin_klientForm = new Admin_Klient();
+                        admin_klientForm.Show();
 
+                        Admin_Tooded admin_toodedForm = new Admin_Tooded();
+                        admin_toodedForm.Show();
+                    }
                 }
                 catch (Exception ex)
                 {

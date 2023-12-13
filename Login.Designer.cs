@@ -52,7 +52,6 @@
             // 
             this.login_txt.Location = new System.Drawing.Point(268, 178);
             this.login_txt.Name = "login_txt";
-            this.login_txt.PasswordChar = '*';
             this.login_txt.Size = new System.Drawing.Size(236, 20);
             this.login_txt.TabIndex = 1;
             // 
