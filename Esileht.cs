@@ -19,9 +19,20 @@ namespace Tooded_DB
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
+        {           
             Login loginForm = new Login();
             loginForm.Show();
+           
+            //this.Hide();
+            //this.FormClosing += MainForm_FormClosing;
         }
+        //private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        //{
+        //    if (e.CloseReason == CloseReason.UserClosing)
+        //    {
+        //        e.Cancel = true; 
+        //        this.Show();
+        //    }
+        //}
     }
 }

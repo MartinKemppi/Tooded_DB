@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace Tooded_DB
 {
+    
     public partial class Login : Form
     {
         public Login()
@@ -21,18 +22,24 @@ namespace Tooded_DB
         {
             Meeldtetuletamine meeldetuletamineForm = new Meeldtetuletamine();
             meeldetuletamineForm.Show();
+
+            this.Close();
         }
 
         private void loouuuskasutaja_btn_Click(object sender, EventArgs e)
         {
             Registreerimine registreerimineForm = new Registreerimine();
             registreerimineForm.Show();
+
+            this.Close();
         }
 
         private void logikylalisena_Click(object sender, EventArgs e)
         {
             Pood poodForm = new Pood();
             poodForm.Show();
+
+            this.Close();
         }
 
         private void login_btn_Click(object sender, EventArgs e)
@@ -47,6 +54,8 @@ namespace Tooded_DB
 
                         Admin_Tooded admin_toodedForm = new Admin_Tooded();
                         admin_toodedForm.Show();
+
+                        this.Close();
                     }
                 }
                 catch (Exception ex)

@@ -1,4 +1,6 @@
-﻿namespace Tooded_DB
+﻿using System.Drawing;
+
+namespace Tooded_DB
 {
     partial class Login
     {
@@ -76,7 +78,7 @@
             // pood_logo
             // 
             this.pood_logo.Location = new System.Drawing.Point(268, 12);
-            this.pood_logo.Name = "pood_logo";
+            this.pood_logo.Name = "pood_logo";            
             this.pood_logo.Size = new System.Drawing.Size(236, 128);
             this.pood_logo.TabIndex = 4;
             this.pood_logo.TabStop = false;

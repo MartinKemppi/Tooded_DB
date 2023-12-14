@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Tooded_DB
 {
@@ -21,7 +22,22 @@ namespace Tooded_DB
         SaveFileDialog save;
         public Registreerimine()
         {
+            
             InitializeComponent();
+            Salasona_txt.UseSystemPasswordChar = true;
+        }
+
+        private void Naita_Salasona(object sender, EventArgs e)
+        {
+            if (c1.Checked)
+            {
+                Salasona_txt.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                Salasona_txt.UseSystemPasswordChar = true;
+            }
+
         }
 
         private void Loo_btn_Click(object sender, EventArgs e)

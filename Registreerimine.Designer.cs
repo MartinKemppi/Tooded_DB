@@ -36,7 +36,7 @@
             this.Email_txt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.Salasona_txt = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.c1 = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.Loo_btn = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -106,19 +106,19 @@
             // 
             this.Salasona_txt.Location = new System.Drawing.Point(169, 213);
             this.Salasona_txt.Name = "Salasona_txt";
-            this.Salasona_txt.PasswordChar = '*';
             this.Salasona_txt.Size = new System.Drawing.Size(221, 20);
             this.Salasona_txt.TabIndex = 7;
             // 
-            // checkBox1
+            // c1
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(396, 215);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(51, 17);
-            this.checkBox1.TabIndex = 8;
-            this.checkBox1.Text = "Näita";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.c1.AutoSize = true;
+            this.c1.Location = new System.Drawing.Point(396, 215);
+            this.c1.Name = "c1";
+            this.c1.Size = new System.Drawing.Size(51, 17);
+            this.c1.TabIndex = 8;
+            this.c1.Text = "Näita";
+            this.c1.UseVisualStyleBackColor = true;
+            this.c1.CheckedChanged += new System.EventHandler(this.Naita_Salasona);
             // 
             // label7
             // 
@@ -182,7 +182,7 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.Loo_btn);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.c1);
             this.Controls.Add(this.Salasona_txt);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Email_txt);
@@ -208,7 +208,7 @@
         private System.Windows.Forms.TextBox Email_txt;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox Salasona_txt;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox c1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button Loo_btn;
         private System.Windows.Forms.Label label10;
