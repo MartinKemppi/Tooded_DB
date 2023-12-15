@@ -22,25 +22,18 @@ namespace Tooded_DB
         SaveFileDialog save;
         public Login()
         {
-            InitializeComponent();
+            InitializeComponent();           
         }
-
         private void unustasin_btn_Click(object sender, EventArgs e)
         {
             Meeldtetuletamine meeldetuletamineForm = new Meeldtetuletamine();
-            meeldetuletamineForm.Show();
-
-            this.Close();
+            meeldetuletamineForm.Show();            
         }
-
         private void loouuuskasutaja_btn_Click(object sender, EventArgs e)
         {
             Registreerimine registreerimineForm = new Registreerimine();
-            registreerimineForm.Show();
-
-            this.Close();
+            registreerimineForm.Show();           
         }
-
         private void logikylalisena_Click(object sender, EventArgs e)
         {
             Pood poodForm = new Pood();
@@ -48,7 +41,6 @@ namespace Tooded_DB
 
             this.Close();
         }
-
         private void login_btn_Click(object sender, EventArgs e)
         {
             if(login_txt.Text.Trim() != string.Empty && salasona_txt.Text.Trim() != string.Empty)
@@ -62,23 +54,7 @@ namespace Tooded_DB
                     adapter_toode = new SqlDataAdapter("SELECT login, salasona FROM klient", connect);
                     
                     command = new SqlCommand("SELECT login, salasona FROM klient", connect);
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            string AB_Login = reader["login"].ToString();
-                            string AB_Salasona = reader["salasona"].ToString();
-
-                            if (sisLogin == AB_Login && sisSala == AB_Salasona)
-                            {
-                                Pood pood = new Pood();
-                                pood.Show();
-                                this.Close();
-                            }
-                        }
-                    }
-
-                    if (login_txt.Text=="Admin" && salasona_txt.Text == "Admin")
+                    if (login_txt.Text == "Admin" && salasona_txt.Text == "Admin")
                     {
                         Admin_Klient admin_klientForm = new Admin_Klient();
                         admin_klientForm.Show();
@@ -88,6 +64,28 @@ namespace Tooded_DB
 
                         this.Close();
                     }
+                    else
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string AB_Login = reader["login"].ToString();
+                                string AB_Salasona = reader["salasona"].ToString();
+
+                                if (sisLogin == AB_Login && sisSala == AB_Salasona)
+                                {
+                                    Pood pood = new Pood();
+                                    pood.Show();
+                                    this.Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Vale login voi salasona");
+                                }
+                            }
+                        }
+                    }                                        
                 }
                 catch (Exception ex)
                 {

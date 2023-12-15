@@ -16,5 +16,15 @@ namespace Tooded_DB
         {
             InitializeComponent();
         }
+        private void Kassa(object sender, EventArgs e)
+        {
+            Kassa kassa = new Kassa();
+            kassa.Show();
+            this.Close();
+        }
+        private void Valju(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace Tooded_DB
 {
@@ -82,6 +83,9 @@ namespace Tooded_DB
             this.pood_logo.Size = new System.Drawing.Size(236, 128);
             this.pood_logo.TabIndex = 4;
             this.pood_logo.TabStop = false;
+            this.pood_logo.Image = new Bitmap("../../Selver.png");
+            this.pood_logo.SizeMode = PictureBoxSizeMode.Zoom;
+            this.pood_logo.BorderStyle = BorderStyle.Fixed3D;
             // 
             // unustasin_btn
             // 

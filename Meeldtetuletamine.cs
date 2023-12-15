@@ -13,7 +13,8 @@ namespace Tooded_DB
 {
     public partial class Meeldtetuletamine : Form
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=HP-CZC2349HTR;Initial Catalog=Pood;Integrated Security=True");
+        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\AppData\Tooded_AB.mdf;Integrated Security=True");
+        //SqlConnection connect = new SqlConnection(@"Data Source=HP-CZC2349HTR;Initial Catalog=Pood;Integrated Security=True");
         SqlDataAdapter adapter_toode, adapter_kategooria;
         SqlCommand command;
         int Id;
@@ -37,7 +38,7 @@ namespace Tooded_DB
                     DataTable dt_Toode = new DataTable();
                     adapter_toode = new SqlDataAdapter("SELECT login, email FROM klient", connect);
 
-                    command = new SqlCommand("SELECT login, email FROM klient", connect);
+                    command = new SqlCommand("SELECT login, email, salasona FROM klient", connect);
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -47,7 +48,7 @@ namespace Tooded_DB
 
                             if (sisLogin == AB_Login && sisEmail == AB_Email)
                             {
-                                MessageBox.Show("Login ja Email leitud AB.");
+                                MessageBox.Show("Login ja Email on meie andmebaasis.");
                                 string salasona = reader["salasona"].ToString();
                                 MessageBox.Show($"Teie salasona on: {salasona}");
                                 break;

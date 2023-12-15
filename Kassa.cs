@@ -16,5 +16,12 @@ namespace Tooded_DB
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Pood pood = new Pood();
+            pood.Show();
+            this.Close();
+        }
     }
 }
