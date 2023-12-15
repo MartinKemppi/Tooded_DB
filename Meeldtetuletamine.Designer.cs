@@ -30,8 +30,10 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.login_txt = new System.Windows.Forms.TextBox();
+            this.tm_btn = new System.Windows.Forms.Button();
+            this.email_txt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -52,29 +54,48 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Salasõna meeldetuletamine";
             // 
-            // textBox1
+            // login_txt
             // 
-            this.textBox1.Location = new System.Drawing.Point(272, 88);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(135, 20);
-            this.textBox1.TabIndex = 2;
+            this.login_txt.Location = new System.Drawing.Point(272, 88);
+            this.login_txt.Name = "login_txt";
+            this.login_txt.Size = new System.Drawing.Size(135, 20);
+            this.login_txt.TabIndex = 2;
             // 
-            // button1
+            // tm_btn
             // 
-            this.button1.Location = new System.Drawing.Point(413, 88);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 20);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Saada";
-            this.button1.UseVisualStyleBackColor = true;
+            this.tm_btn.Location = new System.Drawing.Point(413, 88);
+            this.tm_btn.Name = "tm_btn";
+            this.tm_btn.Size = new System.Drawing.Size(75, 46);
+            this.tm_btn.TabIndex = 3;
+            this.tm_btn.Text = "Tuleta meelde";
+            this.tm_btn.UseVisualStyleBackColor = true;
+            this.tm_btn.Click += new System.EventHandler(this.Tuleta_meelde);
+            // 
+            // email_txt
+            // 
+            this.email_txt.Location = new System.Drawing.Point(272, 114);
+            this.email_txt.Name = "email_txt";
+            this.email_txt.Size = new System.Drawing.Size(135, 20);
+            this.email_txt.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(224, 114);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "E-mail";
             // 
             // Meeldtetuletamine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(683, 126);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(683, 180);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.email_txt);
+            this.Controls.Add(this.tm_btn);
+            this.Controls.Add(this.login_txt);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Meeldtetuletamine";
@@ -88,7 +109,9 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox login_txt;
+        private System.Windows.Forms.Button tm_btn;
+        private System.Windows.Forms.TextBox email_txt;
+        private System.Windows.Forms.Label label3;
     }
 }

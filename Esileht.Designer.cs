@@ -1,4 +1,6 @@
-﻿namespace Tooded_DB
+﻿using System.Drawing;
+
+namespace Tooded_DB
 {
     partial class Esileht
     {
@@ -86,6 +88,7 @@
             // 
             this.pb_logo_pood.Location = new System.Drawing.Point(12, 12);
             this.pb_logo_pood.Name = "pb_logo_pood";
+            this.pb_logo_pood.Image = new Bitmap("../../../Selver_logo.png");
             this.pb_logo_pood.Size = new System.Drawing.Size(150, 150);
             this.pb_logo_pood.TabIndex = 7;
             this.pb_logo_pood.TabStop = false;
