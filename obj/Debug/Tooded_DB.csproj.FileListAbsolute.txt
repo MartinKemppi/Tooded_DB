@@ -1,6 +1,5 @@
 C:\Users\Matti\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.csproj.AssemblyReference.cache
 C:\Users\Matti\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.csproj.SuggestedBindingRedirects.cache
-C:\Users\Matti\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.Form1.resources
 C:\Users\Matti\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.Properties.Resources.resources
 C:\Users\Matti\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.csproj.GenerateResource.cache
 C:\Users\Matti\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.csproj.CoreCompileInputs.cache
@@ -51,3 +50,11 @@ C:\Users\opilane\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.csproj.Genera
 C:\Users\opilane\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.csproj.CoreCompileInputs.cache
 C:\Users\opilane\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.exe
 C:\Users\opilane\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.pdb
+C:\Users\Matti\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.Admin_Klient.resources
+C:\Users\Matti\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.Admin_Tooded.resources
+C:\Users\Matti\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.Esileht.resources
+C:\Users\Matti\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.Kassa.resources
+C:\Users\Matti\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.Login.resources
+C:\Users\Matti\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.Meeldtetuletamine.resources
+C:\Users\Matti\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.Pood.resources
+C:\Users\Matti\source\repos\Tooded_DB-master\obj\Debug\Tooded_DB.Registreerimine.resources

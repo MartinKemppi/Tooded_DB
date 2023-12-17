@@ -14,7 +14,9 @@ namespace Tooded_DB
 {   
     public partial class Login : Form
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=HP-CZC2349HTR;Initial Catalog=Pood;Integrated Security=True");
+        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Matti\source\repos\Tooded_DB-master\AppData\Tooded_AB.mdf;Integrated Security=True");
+        //SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\AppData\Tooded_AB.mdf;Integrated Security=True");
+        //SqlConnection connect = new SqlConnection(@"Data Source=HP-CZC2349HTR;Initial Catalog=Pood;Integrated Security=True");
         SqlDataAdapter adapter_toode, adapter_kategooria;
         SqlCommand command;
         int Id;
@@ -49,11 +51,9 @@ namespace Tooded_DB
                     string sisLogin = login_txt.Text.Trim();
                     string sisSala = salasona_txt.Text.Trim();
 
-                    connect.Open();
-                    DataTable dt_Toode = new DataTable();
-                    adapter_toode = new SqlDataAdapter("SELECT login, salasona FROM klient", connect);
-                    
+                    connect.Open();                   
                     command = new SqlCommand("SELECT login, salasona FROM klient", connect);
+                    
                     if (login_txt.Text == "Admin" && salasona_txt.Text == "Admin")
                     {
                         Admin_Klient admin_klientForm = new Admin_Klient();
@@ -68,7 +68,7 @@ namespace Tooded_DB
                     {
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            while (reader.Read())
+                            if(reader.Read())
                             {
                                 string AB_Login = reader["login"].ToString();
                                 string AB_Salasona = reader["salasona"].ToString();
@@ -77,11 +77,13 @@ namespace Tooded_DB
                                 {
                                     Pood pood = new Pood();
                                     pood.Show();
+                                    connect.Close();
                                     this.Close();
                                 }
                                 else
                                 {
                                     MessageBox.Show("Vale login voi salasona");
+                                    connect.Close();
                                 }
                             }
                         }

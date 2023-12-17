@@ -28,59 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.olemastoode = new System.Windows.Forms.PictureBox();
+            this.Olemas = new System.Windows.Forms.ListBox();
+            this.Kat_Box = new System.Windows.Forms.ComboBox();
+            this.kogus_txt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.hind_txt = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Voetud = new System.Windows.Forms.ListBox();
+            this.voetudtoode = new System.Windows.Forms.PictureBox();
+            this.lisatoode_btn = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.olemastoode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.voetudtoode)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // olemastoode
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(29, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(150, 150);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.olemastoode.Location = new System.Drawing.Point(29, 12);
+            this.olemastoode.Name = "olemastoode";
+            this.olemastoode.Size = new System.Drawing.Size(150, 150);
+            this.olemastoode.TabIndex = 0;
+            this.olemastoode.TabStop = false;
             // 
-            // listBox1
+            // Olemas
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(29, 208);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(150, 225);
-            this.listBox1.TabIndex = 1;
+            this.Olemas.FormattingEnabled = true;
+            this.Olemas.Location = new System.Drawing.Point(29, 208);
+            this.Olemas.Name = "Olemas";
+            this.Olemas.Size = new System.Drawing.Size(150, 225);
+            this.Olemas.TabIndex = 1;
             // 
-            // comboBox1
+            // Kat_Box
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(29, 181);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(150, 21);
-            this.comboBox1.TabIndex = 2;
+            this.Kat_Box.FormattingEnabled = true;
+            this.Kat_Box.Location = new System.Drawing.Point(29, 181);
+            this.Kat_Box.Name = "Kat_Box";
+            this.Kat_Box.Size = new System.Drawing.Size(150, 21);
+            this.Kat_Box.TabIndex = 2;
             // 
-            // textBox1
+            // kogus_txt
             // 
-            this.textBox1.Location = new System.Drawing.Point(29, 452);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 20);
-            this.textBox1.TabIndex = 3;
+            this.kogus_txt.Location = new System.Drawing.Point(29, 452);
+            this.kogus_txt.Name = "kogus_txt";
+            this.kogus_txt.Size = new System.Drawing.Size(150, 20);
+            this.kogus_txt.TabIndex = 3;
             // 
             // label1
             // 
@@ -100,44 +96,12 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Hind";
             // 
-            // textBox2
+            // hind_txt
             // 
-            this.textBox2.Location = new System.Drawing.Point(29, 491);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(150, 20);
-            this.textBox2.TabIndex = 6;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(613, 491);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(150, 20);
-            this.textBox3.TabIndex = 11;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(670, 475);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Hind";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(670, 436);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 13);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Kogus";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(613, 452);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(150, 20);
-            this.textBox4.TabIndex = 8;
+            this.hind_txt.Location = new System.Drawing.Point(29, 491);
+            this.hind_txt.Name = "hind_txt";
+            this.hind_txt.Size = new System.Drawing.Size(150, 20);
+            this.hind_txt.TabIndex = 6;
             // 
             // label7
             // 
@@ -157,31 +121,32 @@
             this.label8.TabIndex = 14;
             this.label8.Text = "Olete võtnud";
             // 
-            // listBox2
+            // Voetud
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(613, 182);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(150, 251);
-            this.listBox2.TabIndex = 15;
+            this.Voetud.FormattingEnabled = true;
+            this.Voetud.Location = new System.Drawing.Point(613, 182);
+            this.Voetud.Name = "Voetud";
+            this.Voetud.Size = new System.Drawing.Size(150, 329);
+            this.Voetud.TabIndex = 15;
             // 
-            // pictureBox2
+            // voetudtoode
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(613, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(150, 150);
-            this.pictureBox2.TabIndex = 16;
-            this.pictureBox2.TabStop = false;
+            this.voetudtoode.Location = new System.Drawing.Point(613, 12);
+            this.voetudtoode.Name = "voetudtoode";
+            this.voetudtoode.Size = new System.Drawing.Size(150, 150);
+            this.voetudtoode.TabIndex = 16;
+            this.voetudtoode.TabStop = false;
             // 
-            // button1
+            // lisatoode_btn
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.button1.Location = new System.Drawing.Point(185, 208);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(37, 34);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "+";
-            this.button1.UseVisualStyleBackColor = true;
+            this.lisatoode_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.lisatoode_btn.Location = new System.Drawing.Point(564, 224);
+            this.lisatoode_btn.Name = "lisatoode_btn";
+            this.lisatoode_btn.Size = new System.Drawing.Size(39, 34);
+            this.lisatoode_btn.TabIndex = 17;
+            this.lisatoode_btn.Text = "+";
+            this.lisatoode_btn.UseVisualStyleBackColor = true;
+            this.lisatoode_btn.Click += new System.EventHandler(this.Lisatoode_korvi);
             // 
             // button3
             // 
@@ -197,12 +162,13 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.button2.Location = new System.Drawing.Point(568, 208);
+            this.button2.Location = new System.Drawing.Point(564, 182);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(39, 36);
             this.button2.TabIndex = 20;
             this.button2.Text = "-";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Kustutatoode_korvist);
             // 
             // button4
             // 
@@ -223,26 +189,22 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.listBox2);
+            this.Controls.Add(this.lisatoode_btn);
+            this.Controls.Add(this.voetudtoode);
+            this.Controls.Add(this.Voetud);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.hind_txt);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.kogus_txt);
+            this.Controls.Add(this.Kat_Box);
+            this.Controls.Add(this.Olemas);
+            this.Controls.Add(this.olemastoode);
             this.Name = "Pood";
-            this.Text = "Form2";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.Text = "Pood";
+            ((System.ComponentModel.ISupportInitialize)(this.olemastoode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.voetudtoode)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,22 +212,18 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.PictureBox olemastoode;
+        private System.Windows.Forms.ListBox Olemas;
+        private System.Windows.Forms.ComboBox Kat_Box;
+        private System.Windows.Forms.TextBox kogus_txt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox hind_txt;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListBox Voetud;
+        private System.Windows.Forms.PictureBox voetudtoode;
+        private System.Windows.Forms.Button lisatoode_btn;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;

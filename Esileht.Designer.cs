@@ -34,21 +34,24 @@ namespace Tooded_DB
         {
             this.button1 = new System.Windows.Forms.Button();
             this.reklaam = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pb1 = new System.Windows.Forms.PictureBox();
+            this.pb2 = new System.Windows.Forms.PictureBox();
+            this.pb3 = new System.Windows.Forms.PictureBox();
             this.pb_logo_pood = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.allhind = new System.Windows.Forms.Label();
             this.hindoli1 = new System.Windows.Forms.Label();
             this.hindsai1 = new System.Windows.Forms.Label();
-            this.hindsai2 = new System.Windows.Forms.Label();
-            this.hindoli2 = new System.Windows.Forms.Label();
-            this.hindsai3 = new System.Windows.Forms.Label();
-            this.hindoli3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pb1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_logo_pood)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,52 +73,47 @@ namespace Tooded_DB
             this.reklaam.TabIndex = 1;
             this.reklaam.Text = "Logides sisse saate";
             // 
-            // pictureBox1
+            // pb1
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(11, 240);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(150, 150);
-            this.pictureBox1.Image = new Bitmap("../../Images/Ketsup.jpg");
-            this.pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            this.pictureBox1.BorderStyle = BorderStyle.Fixed3D;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.pb1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pb1.Location = new System.Drawing.Point(11, 240);
+            this.pb1.Name = "pb1";
+            this.pb1.Image = new Bitmap("../../Images/Ketsup.jpg");
+            this.pb1.Size = new System.Drawing.Size(150, 150);
+            this.pb1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb1.TabIndex = 2;
+            this.pb1.TabStop = false;
             // 
-            // pictureBox2
+            // pb2
             // 
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox2.Location = new System.Drawing.Point(167, 240);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(150, 150);
-            this.pictureBox2.Image = new Bitmap("../../Images/piim.jpg");
-
-            this.pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            this.pictureBox2.BorderStyle = BorderStyle.Fixed3D;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
+            this.pb2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pb2.Location = new System.Drawing.Point(167, 240);
+            this.pb2.Name = "pb2";
+            this.pb2.Image = new Bitmap("../../Images/piim.jpg");
+            this.pb2.Size = new System.Drawing.Size(150, 150);
+            this.pb2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb2.TabIndex = 3;
+            this.pb2.TabStop = false;
             // 
-            // pictureBox3
+            // pb3
             // 
-            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox3.Location = new System.Drawing.Point(323, 240);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(150, 150);
-            this.pictureBox3.Image = new Bitmap("../../Images/Pirn.jpg");
-            this.pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            this.pictureBox3.BorderStyle = BorderStyle.Fixed3D;
-            this.pictureBox3.TabIndex = 4;
-            this.pictureBox3.TabStop = false;
+            this.pb3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pb3.Location = new System.Drawing.Point(323, 240);
+            this.pb3.Name = "pb3";
+            this.pb3.Image = new Bitmap("../../Images/Sinep.jpg");
+            this.pb3.Size = new System.Drawing.Size(150, 150);
+            this.pb3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb3.TabIndex = 4;
+            this.pb3.TabStop = false;
             // 
             // pb_logo_pood
             // 
             this.pb_logo_pood.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pb_logo_pood.Location = new System.Drawing.Point(12, 12);
             this.pb_logo_pood.Name = "pb_logo_pood";
-            this.pb_logo_pood.Size = new System.Drawing.Size(150, 150);
             this.pb_logo_pood.Image = new Bitmap("../../Selver.png");
-            this.pb_logo_pood.SizeMode = PictureBoxSizeMode.Zoom;
-            this.pb_logo_pood.BorderStyle = BorderStyle.Fixed3D;
+            this.pb_logo_pood.Size = new System.Drawing.Size(150, 150);
+            this.pb_logo_pood.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_logo_pood.TabIndex = 7;
             this.pb_logo_pood.TabStop = false;
             // 
@@ -146,61 +144,92 @@ namespace Tooded_DB
             // 
             this.hindsai1.Location = new System.Drawing.Point(33, 413);
             this.hindsai1.Name = "hindsai1";
-            this.hindsai1.Size = new System.Drawing.Size(100, 20);
+            this.hindsai1.Size = new System.Drawing.Size(35, 20);
             this.hindsai1.TabIndex = 11;
             // 
-            // hindsai2
+            // label2
             // 
-            this.hindsai2.Location = new System.Drawing.Point(191, 413);
-            this.hindsai2.Name = "hindsai2";
-            this.hindsai2.Size = new System.Drawing.Size(100, 20);
-            this.hindsai2.TabIndex = 13;
+            this.label2.Location = new System.Drawing.Point(33, 393);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 20);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Oli";
             // 
-            // hindoli2
+            // label3
             // 
-            this.hindoli2.Location = new System.Drawing.Point(191, 393);
-            this.hindoli2.Name = "hindoli2";
-            this.hindoli2.Size = new System.Drawing.Size(100, 20);
-            this.hindoli2.TabIndex = 12;
+            this.label3.Location = new System.Drawing.Point(33, 413);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 20);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Nüüd";
             // 
-            // hindsai3
+            // label4
             // 
-            this.hindsai3.Location = new System.Drawing.Point(337, 413);
-            this.hindsai3.Name = "hindsai3";
-            this.hindsai3.Size = new System.Drawing.Size(100, 20);
-            this.hindsai3.TabIndex = 15;
+            this.label4.Location = new System.Drawing.Point(217, 217);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 20);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Sellel nädalal";
             // 
-            // hindoli3
+            // label5
             // 
-            this.hindoli3.Location = new System.Drawing.Point(337, 393);
-            this.hindoli3.Name = "hindoli3";
-            this.hindoli3.Size = new System.Drawing.Size(100, 20);
-            this.hindoli3.TabIndex = 14;
+            this.label5.Location = new System.Drawing.Point(164, 413);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 20);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Nüüd";
+            // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(164, 393);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 20);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Oli";
+            // 
+            // label7
+            // 
+            this.label7.Location = new System.Drawing.Point(323, 413);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 20);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "Nüüd";
+            // 
+            // label8
+            // 
+            this.label8.Location = new System.Drawing.Point(323, 393);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 20);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Oli";
             // 
             // Esileht
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(488, 450);
-            this.Controls.Add(this.hindsai3);
-            this.Controls.Add(this.hindoli3);
-            this.Controls.Add(this.hindsai2);
-            this.Controls.Add(this.hindoli2);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.hindsai1);
             this.Controls.Add(this.hindoli1);
             this.Controls.Add(this.allhind);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pb_logo_pood);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pb3);
+            this.Controls.Add(this.pb2);
+            this.Controls.Add(this.pb1);
             this.Controls.Add(this.reklaam);
             this.Controls.Add(this.button1);
             this.Name = "Esileht";
             this.Text = "Selver";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_logo_pood)).EndInit();
             this.ResumeLayout(false);
 
@@ -210,17 +239,20 @@ namespace Tooded_DB
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label reklaam;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pb1;
+        private System.Windows.Forms.PictureBox pb2;
+        private System.Windows.Forms.PictureBox pb3;
         private System.Windows.Forms.PictureBox pb_logo_pood;
         private Label label1;
         private Label allhind;
         private Label hindoli1;
         private Label hindsai1;
-        private Label hindsai2;
-        private Label hindoli2;
-        private Label hindsai3;
-        private Label hindoli3;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label5;
+        private Label label6;
+        private Label label7;
+        private Label label8;
     }
 }

@@ -13,7 +13,8 @@ namespace Tooded_DB
 {
     public partial class Meeldtetuletamine : Form
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\AppData\Tooded_AB.mdf;Integrated Security=True");
+        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Matti\source\repos\Tooded_DB-master\AppData\Tooded_AB.mdf;Integrated Security=True");
+        //SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\AppData\Tooded_AB.mdf;Integrated Security=True");
         //SqlConnection connect = new SqlConnection(@"Data Source=HP-CZC2349HTR;Initial Catalog=Pood;Integrated Security=True");
         SqlDataAdapter adapter_toode, adapter_kategooria;
         SqlCommand command;
@@ -35,13 +36,10 @@ namespace Tooded_DB
                     string sisEmail = email_txt.Text.Trim();
 
                     connect.Open();
-                    DataTable dt_Toode = new DataTable();
-                    adapter_toode = new SqlDataAdapter("SELECT login, email FROM klient", connect);
-
                     command = new SqlCommand("SELECT login, email, salasona FROM klient", connect);
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if(reader.Read())
                         {
                             string AB_Login = reader["login"].ToString();
                             string AB_Email = reader["email"].ToString();
@@ -51,11 +49,15 @@ namespace Tooded_DB
                                 MessageBox.Show("Login ja Email on meie andmebaasis.");
                                 string salasona = reader["salasona"].ToString();
                                 MessageBox.Show($"Teie salasona on: {salasona}");
-                                break;
+                                connect.Close();
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Sellist kasutajat voi emaili pole");                                
                             }
                         }
-                    }
-                    this.Close();
+                    }                    
                 }
                 catch (Exception ex)
                 {

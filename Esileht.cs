@@ -13,12 +13,11 @@ using System.Windows.Forms;
 namespace Tooded_DB
 {
     public partial class Esileht : Form
-    {           
+    {        
         public Esileht()
         {
             InitializeComponent();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {           
             Login loginForm = new Login();
