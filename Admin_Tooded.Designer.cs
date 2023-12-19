@@ -53,7 +53,7 @@
             this.DGW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGW.Location = new System.Drawing.Point(12, 235);
             this.DGW.Name = "DGW";
-            this.DGW.Size = new System.Drawing.Size(734, 171);
+            this.DGW.Size = new System.Drawing.Size(734, 439);
             this.DGW.TabIndex = 0;
             // 
             // button1
@@ -189,11 +189,11 @@
             this.pb.TabIndex = 15;
             this.pb.TabStop = false;
             // 
-            // Form1
+            // Admin_Tooded
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 679);
             this.Controls.Add(this.pb);
             this.Controls.Add(this.Kat_Box);
             this.Controls.Add(this.Hind);
@@ -210,7 +210,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.DGW);
-            this.Name = "Admin";
+            this.Name = "Admin_Tooded";
             this.Text = "Admin";
             ((System.ComponentModel.ISupportInitialize)(this.DGW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb)).EndInit();

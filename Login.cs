@@ -77,6 +77,7 @@ namespace Tooded_DB
                                 {
                                     Pood pood = new Pood();
                                     pood.Show();
+                                    pood.LoggedInFromLogin = true;
                                     connect.Close();
                                     this.Close();
                                 }

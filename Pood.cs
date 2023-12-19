@@ -22,6 +22,8 @@ namespace Tooded_DB
         int Id;
         OpenFileDialog open;
         SaveFileDialog save;
+        List<string> voetudItems = new List<string>();
+        public bool LoggedInFromLogin { get; set; }
         public Pood()
         {
             InitializeComponent();
@@ -33,7 +35,7 @@ namespace Tooded_DB
         }
         private void Kassa(object sender, EventArgs e)
         {
-            Kassa kassa = new Kassa();
+            Kassa kassa = new Kassa(voetudItems);
             kassa.Show();
             this.Close();
         }
@@ -122,6 +124,7 @@ namespace Tooded_DB
                         connect.Close();
 
                         Voetud.Items.Add(selectedItem);
+                        voetudItems.Add(selectedItem);
                         Naitakogus(selectedItem);
                     }
                     else
@@ -156,6 +159,7 @@ namespace Tooded_DB
                     connect.Close();
 
                     Voetud.Items.Remove(selectedItem);
+                    voetudItems.Remove(selectedItem);
                     Naitakogus(selectedItem);
                 }
                 else
