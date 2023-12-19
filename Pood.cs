@@ -35,9 +35,16 @@ namespace Tooded_DB
         }
         private void Kassa(object sender, EventArgs e)
         {
-            Kassa kassa = new Kassa(voetudItems);
-            kassa.Show();
-            this.Close();
+            if (voetudItems.Count > 0)
+            {
+                Kassa kassa = new Kassa(voetudItems);
+                kassa.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Tühi korviga pole mõttet minna kassase, ostke midagi!","Hoiatus");
+            }
         }
         private void Valju(object sender, EventArgs e)
         {
