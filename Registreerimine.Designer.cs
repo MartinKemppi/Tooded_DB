@@ -192,7 +192,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Nimi_txt);
             this.Name = "Registreerimine";
-            this.Text = "Form2";
+            this.Text = "Registreerimine";
             this.ResumeLayout(false);
             this.PerformLayout();
 

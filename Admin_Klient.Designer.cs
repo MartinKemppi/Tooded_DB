@@ -204,7 +204,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.DGW);
             this.Name = "Admin_Klient";
-            this.Text = "Form2";
+            this.Text = "Admin_Klient";
             ((System.ComponentModel.ISupportInitialize)(this.DGW)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

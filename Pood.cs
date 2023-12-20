@@ -14,16 +14,13 @@ namespace Tooded_DB
 {
     public partial class Pood : Form
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Matti\source\repos\Tooded_DB-master\AppData\Tooded_AB.mdf;Integrated Security=True");
-        //SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\AppData\Tooded_AB.mdf;Integrated Security=True");
+        //SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Matti\source\repos\Tooded_DB-master\AppData\Tooded_AB.mdf;Integrated Security=True");
+        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\AppData\Tooded_AB.mdf;Integrated Security=True");
         //SqlConnection connect = new SqlConnection(@"Data Source=HP-CZC2349HTR;Initial Catalog=Pood;Integrated Security=True");
         SqlDataAdapter adapter_toode, adapter_kategooria;
         SqlCommand command;
-        int Id;
-        OpenFileDialog open;
-        SaveFileDialog save;
-        List<string> voetudItems = new List<string>();
-        public bool LoggedInFromLogin { get; set; }
+        List<string> voetudList = new List<string>();
+        public bool LoginlogVormist { get; set; }
         public Pood()
         {
             InitializeComponent();
@@ -35,9 +32,9 @@ namespace Tooded_DB
         }
         private void Kassa(object sender, EventArgs e)
         {
-            if (voetudItems.Count > 0)
+            if (voetudList.Count > 0)
             {
-                Kassa kassa = new Kassa(voetudItems);
+                Kassa kassa = new Kassa(voetudList);
                 kassa.Show();
                 this.Close();
             }
@@ -52,15 +49,15 @@ namespace Tooded_DB
         }
         private void NaitaAndmed()
         {
-            string selectedCategory = Kat_Box.SelectedItem?.ToString();
-            if (!string.IsNullOrEmpty(selectedCategory))
+            string valKat = Kat_Box.SelectedItem?.ToString();
+            if (!string.IsNullOrEmpty(valKat))
             {
                 try
                 {
                     connect.Open();
-                    string query = "SELECT Toodenimetus FROM Tootetable WHERE Kategooriad IN (SELECT Id FROM ToodeTable WHERE Kategooria_nimetus = @category)";
+                    string query = "SELECT Toodenimetus FROM Tootetable WHERE Kategooriad IN (SELECT Id FROM ToodeTable WHERE Kategooria_nimetus = @kat)";
                     command = new SqlCommand(query, connect);
-                    command.Parameters.AddWithValue("@category", selectedCategory);
+                    command.Parameters.AddWithValue("@kat", valKat);
                     SqlDataReader reader = command.ExecuteReader();
                     Olemas.Items.Clear();
 
@@ -110,29 +107,29 @@ namespace Tooded_DB
             {
                 if (Olemas.SelectedItem != null)
                 {
-                    string selectedItem = Olemas.SelectedItem.ToString();
+                    string valtoode = Olemas.SelectedItem.ToString();
 
                     // Kontroll kogusele
-                    string checkQuery = "SELECT Kogus FROM Tootetable WHERE Toodenimetus = @itemName";
-                    command = new SqlCommand(checkQuery, connect);
-                    command.Parameters.AddWithValue("@itemName", selectedItem);
+                    string kontrollpar = "SELECT Kogus FROM Tootetable WHERE Toodenimetus = @Nimi";
+                    command = new SqlCommand(kontrollpar, connect);
+                    command.Parameters.AddWithValue("@Nimi", valtoode);
                     connect.Open();
-                    int kogusValue = Convert.ToInt32(command.ExecuteScalar());
+                    int kogusArv = Convert.ToInt32(command.ExecuteScalar());
                     connect.Close();
 
-                    if (kogusValue > 0)
+                    if (kogusArv > 0)
                     {
                         // Kui toode on olemas, siis laseme votta yks kuni toode jatkub
-                        string updateQuery = "UPDATE Tootetable SET Kogus = Kogus - 1 WHERE Toodenimetus = @itemName";
-                        command = new SqlCommand(updateQuery, connect);
-                        command.Parameters.AddWithValue("@itemName", selectedItem);
+                        string uuendaPar = "UPDATE Tootetable SET Kogus = Kogus - 1 WHERE Toodenimetus = @Nimi";
+                        command = new SqlCommand(uuendaPar, connect);
+                        command.Parameters.AddWithValue("@Nimi", valtoode);
                         connect.Open();
                         command.ExecuteNonQuery();
                         connect.Close();
 
-                        Voetud.Items.Add(selectedItem);
-                        voetudItems.Add(selectedItem);
-                        Naitakogus(selectedItem);
+                        Voetud.Items.Add(valtoode);
+                        voetudList.Add(valtoode);
+                        Naitakogus(valtoode);
                     }
                     else
                     {
@@ -155,19 +152,19 @@ namespace Tooded_DB
             {
                 if (Voetud.SelectedItem != null)
                 {
-                    string selectedItem = Voetud.SelectedItem.ToString();
+                    string valtoode = Voetud.SelectedItem.ToString();
 
                     // Tagasi paneme riulile toode e. +1
-                    string updateQuery = "UPDATE Tootetable SET Kogus = Kogus + 1 WHERE Toodenimetus = @itemName";
+                    string updateQuery = "UPDATE Tootetable SET Kogus = Kogus + 1 WHERE Toodenimetus = @Nimi";
                     command = new SqlCommand(updateQuery, connect);
-                    command.Parameters.AddWithValue("@itemName", selectedItem);
+                    command.Parameters.AddWithValue("@Nimi", valtoode);
                     connect.Open();
                     command.ExecuteNonQuery();
                     connect.Close();
 
-                    Voetud.Items.Remove(selectedItem);
-                    voetudItems.Remove(selectedItem);
-                    Naitakogus(selectedItem);
+                    Voetud.Items.Remove(valtoode);
+                    voetudList.Remove(valtoode);
+                    Naitakogus(valtoode);
                 }
                 else
                 {
@@ -183,31 +180,31 @@ namespace Tooded_DB
         {
             if (Olemas.SelectedItem != null)
             {
-                string selectedItem = Olemas.SelectedItem.ToString();
-                string imageName = string.Empty;
+                string valToode = Olemas.SelectedItem.ToString();
+                string piltNimi = string.Empty;
 
                 try
                 {
                     connect.Open();
-                    string query = "SELECT Pilt, Kogus, Hind FROM Tootetable WHERE Toodenimetus = @itemName";
+                    string query = "SELECT Pilt, Kogus, Hind FROM Tootetable WHERE Toodenimetus = @Nimi";
                     command = new SqlCommand(query, connect);
-                    command.Parameters.AddWithValue("@itemName", selectedItem);
+                    command.Parameters.AddWithValue("@Nimi", valToode);
                     SqlDataReader reader = command.ExecuteReader();
 
                     if (reader.Read())
                     {
-                        imageName = reader["Pilt"].ToString();
-                        string imagePath = Path.Combine(Path.GetFullPath(@"..\..\Images"), imageName);
-                        if (File.Exists(imagePath))
+                        piltNimi = reader["Pilt"].ToString();
+                        string piltMapp = Path.Combine(Path.GetFullPath(@"..\..\Images"), piltNimi);
+                        if (File.Exists(piltMapp))
                         {
-                            Image img = Image.FromFile(imagePath);
+                            Image pilt = Image.FromFile(piltMapp);
                             olemastoode.SizeMode = PictureBoxSizeMode.StretchImage;
                             olemastoode.ClientSize = new Size(150, 150);
-                            olemastoode.Image = (Image)(new Bitmap(img, olemastoode.ClientSize));
+                            olemastoode.Image = (Image)(new Bitmap(pilt, olemastoode.ClientSize));
                         }
                         else
                         {
-                            MessageBox.Show($"Pilt '{imageName}' ei ole leitud.");
+                            MessageBox.Show($"Pilt '{piltNimi}' ei ole leitud.");
                         }
 
                         int kogus = Convert.ToInt32(reader["Kogus"]);
@@ -221,7 +218,7 @@ namespace Tooded_DB
                     }
                     else
                     {
-                        MessageBox.Show($"Pilt '{selectedItem}' ei ole leitud.");
+                        MessageBox.Show($"Pilt '{valToode}' ei ole leitud.");
                     }
                     connect.Close();
                 }
@@ -235,36 +232,36 @@ namespace Tooded_DB
         {
             if (Voetud.SelectedItem != null)
             {
-                string selectedItem = Voetud.SelectedItem.ToString();
-                string imageName = string.Empty;
+                string valToode = Voetud.SelectedItem.ToString();
+                string piltNimi = string.Empty;
 
                 try
                 {
                     connect.Open();
-                    string query = "SELECT Pilt, Kogus, Hind FROM Tootetable WHERE Toodenimetus = @itemName";
-                    command = new SqlCommand(query, connect);
-                    command.Parameters.AddWithValue("@itemName", selectedItem);
+                    string par = "SELECT Pilt, Kogus, Hind FROM Tootetable WHERE Toodenimetus = @Nimi";
+                    command = new SqlCommand(par, connect);
+                    command.Parameters.AddWithValue("@Nimi", valToode);
                     SqlDataReader reader = command.ExecuteReader();
 
                     if (reader.Read())
                     {
-                        imageName = reader["Pilt"].ToString();
-                        string imagePath = Path.Combine(Path.GetFullPath(@"..\..\Images"), imageName);
-                        if (File.Exists(imagePath))
+                        piltNimi = reader["Pilt"].ToString();
+                        string piltMapp = Path.Combine(Path.GetFullPath(@"..\..\Images"), piltNimi);
+                        if (File.Exists(piltMapp))
                         {
-                            Image img = Image.FromFile(imagePath);
+                            Image img = Image.FromFile(piltMapp);
                             voetudtoode.SizeMode = PictureBoxSizeMode.StretchImage;
                             voetudtoode.ClientSize = new Size(150, 150);
                             voetudtoode.Image = (Image)(new Bitmap(img, voetudtoode.ClientSize));
                         }
                         else
                         {
-                            MessageBox.Show($"Pilt '{imageName}' ei ole leitud.");
+                            MessageBox.Show($"Pilt '{piltNimi}' ei ole leitud.");
                         }                       
                     }
                     else
                     {
-                        MessageBox.Show($"Toode '{selectedItem}' ei ole leitud.");
+                        MessageBox.Show($"Toode '{valToode}' ei ole leitud.");
                     }
                     connect.Close();
                 }
@@ -274,14 +271,14 @@ namespace Tooded_DB
                 }
             }
         }
-        private void Naitakogus(string selectedItem)
+        private void Naitakogus(string valToode)
         {
             try
             {
                 connect.Open();
-                string query = "SELECT Kogus FROM Tootetable WHERE Toodenimetus = @itemName";
-                command = new SqlCommand(query, connect);
-                command.Parameters.AddWithValue("@itemName", selectedItem);
+                string par = "SELECT Kogus FROM Tootetable WHERE Toodenimetus = @itemName";
+                command = new SqlCommand(par, connect);
+                command.Parameters.AddWithValue("@itemName", valToode);
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.Read())
@@ -291,7 +288,7 @@ namespace Tooded_DB
                 }
                 else
                 {
-                    MessageBox.Show($"Toode '{selectedItem}' ei ole leitud.");
+                    MessageBox.Show($"Toode '{valToode}' ei ole leitud.");
                 }
 
                 connect.Close();

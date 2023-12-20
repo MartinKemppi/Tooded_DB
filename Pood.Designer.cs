@@ -115,7 +115,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(649, 165);
+            this.label8.Location = new System.Drawing.Point(327, 164);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(68, 13);
             this.label8.TabIndex = 14;
@@ -124,14 +124,14 @@
             // Voetud
             // 
             this.Voetud.FormattingEnabled = true;
-            this.Voetud.Location = new System.Drawing.Point(613, 182);
+            this.Voetud.Location = new System.Drawing.Point(291, 181);
             this.Voetud.Name = "Voetud";
             this.Voetud.Size = new System.Drawing.Size(150, 329);
             this.Voetud.TabIndex = 15;
             // 
             // voetudtoode
             // 
-            this.voetudtoode.Location = new System.Drawing.Point(613, 12);
+            this.voetudtoode.Location = new System.Drawing.Point(291, 11);
             this.voetudtoode.Name = "voetudtoode";
             this.voetudtoode.Size = new System.Drawing.Size(150, 150);
             this.voetudtoode.TabIndex = 16;
@@ -140,7 +140,7 @@
             // lisatoode_btn
             // 
             this.lisatoode_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.lisatoode_btn.Location = new System.Drawing.Point(564, 224);
+            this.lisatoode_btn.Location = new System.Drawing.Point(216, 223);
             this.lisatoode_btn.Name = "lisatoode_btn";
             this.lisatoode_btn.Size = new System.Drawing.Size(39, 34);
             this.lisatoode_btn.TabIndex = 17;
@@ -151,7 +151,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.button3.Location = new System.Drawing.Point(351, 415);
+            this.button3.Location = new System.Drawing.Point(185, 406);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 57);
             this.button3.TabIndex = 19;
@@ -162,7 +162,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.button2.Location = new System.Drawing.Point(564, 182);
+            this.button2.Location = new System.Drawing.Point(216, 181);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(39, 36);
             this.button2.TabIndex = 20;
@@ -173,7 +173,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.button4.Location = new System.Drawing.Point(351, 475);
+            this.button4.Location = new System.Drawing.Point(185, 469);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 57);
             this.button4.TabIndex = 21;
@@ -185,7 +185,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 535);
+            this.ClientSize = new System.Drawing.Size(466, 535);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);

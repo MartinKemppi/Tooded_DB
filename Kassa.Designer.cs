@@ -109,7 +109,7 @@
             this.Controls.Add(this.hind_txt);
             this.Controls.Add(this.korv);
             this.Name = "Kassa";
-            this.Text = "Form2";
+            this.Text = "Kassa";
             ((System.ComponentModel.ISupportInitialize)(this.val_toode_pb)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

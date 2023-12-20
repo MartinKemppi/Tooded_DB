@@ -211,7 +211,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.DGW);
             this.Name = "Admin_Tooded";
-            this.Text = "Admin";
+            this.Text = "Admin_Tooded";
             ((System.ComponentModel.ISupportInitialize)(this.DGW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb)).EndInit();
             this.ResumeLayout(false);

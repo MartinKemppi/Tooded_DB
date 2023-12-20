@@ -99,7 +99,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Meeldtetuletamine";
-            this.Text = "Form2";
+            this.Text = "Meeldtetuletamine";
             this.ResumeLayout(false);
             this.PerformLayout();
 

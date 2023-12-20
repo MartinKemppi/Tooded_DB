@@ -55,7 +55,7 @@ namespace Tooded_DB
             this.button1.TabIndex = 0;
             this.button1.Text = "Logi sisse e-poodi";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Logi_sisse);
             // 
             // reklaam
             // 
@@ -171,7 +171,7 @@ namespace Tooded_DB
             this.Controls.Add(this.reklaam);
             this.Controls.Add(this.button1);
             this.Name = "Esileht";
-            this.Text = "Selver";
+            this.Text = "Esileht";
             this.ResumeLayout(false);
 
         }

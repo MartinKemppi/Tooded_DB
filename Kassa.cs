@@ -21,8 +21,8 @@ namespace Tooded_DB
 {
     public partial class Kassa : Form
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Matti\source\repos\Tooded_DB-master\AppData\Tooded_AB.mdf;Integrated Security=True");
-        //SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\AppData\Tooded_AB.mdf;Integrated Security=True");
+        //SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Matti\source\repos\Tooded_DB-master\AppData\Tooded_AB.mdf;Integrated Security=True");
+        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\opilane\source\repos\MartinKemppi\Tooded_DB-master\AppData\Tooded_AB.mdf;Integrated Security=True");
         //SqlConnection connect = new SqlConnection(@"Data Source=HP-CZC2349HTR;Initial Catalog=Pood;Integrated Security=True");
         SqlDataAdapter adapter_toode, adapter_kategooria;
         SqlCommand command;
@@ -31,62 +31,62 @@ namespace Tooded_DB
         SaveFileDialog save;
         Document document;
         List<string> Tooded_list = new List<string>();//tooded listisse
-        private float totalPriceSum;
+        private float KoguhinnaSum;
         private bool allhind = false;
-        public Kassa(List<string> voetudItemsFromPood)
+        public Kassa(List<string> voetudToodedPoest)
         {
             InitializeComponent();
-            UpdateKorv(voetudItemsFromPood);
-            korv.SelectedIndexChanged += korv_SelectedIndexChanged;
+            Uendakorv(voetudToodedPoest);
+            korv.SelectedIndexChanged += korv_valIndex;
             korv.SelectedIndexChanged += PiltAB;
-            Tooded_list = voetudItemsFromPood;
+            Tooded_list = voetudToodedPoest;
             Allhindkontroll();
         }
-        private void UpdateKorv(List<string> items)
+        private void Uendakorv(List<string> items)
         {
             foreach (var item in items)
             {
                 korv.Items.Add(item);
             }
         }
-        private void korv_SelectedIndexChanged(object sender, EventArgs e)
+        private void korv_valIndex(object sender, EventArgs e)
         {
             if (korv.SelectedItem != null)
             {
-                string selectedItem = korv.SelectedItem.ToString();
+                string valToode = korv.SelectedItem.ToString();
 
-                float itemPrice = HindAB(selectedItem);
-                hind_txt.Text = itemPrice.ToString();
+                float toodeHind = HindAB(valToode);
+                hind_txt.Text = toodeHind.ToString();
                 hind_txt.ReadOnly = true;
 
-                float totalPrice = ArvutaKorvi();
+                float HindKokku = ArvutaKorvi();
 
                 if (allhind)
                 {
-                    itemPrice *= 0.95f;
-                    totalPrice *= 0.95f;
+                    toodeHind *= 0.95f;
+                    HindKokku *= 0.95f;
                 }
 
-                hind_txt.Text = itemPrice.ToString();
-                hindkokku_txt.Text = totalPrice.ToString();
+                hind_txt.Text = toodeHind.ToString();
+                hindkokku_txt.Text = HindKokku.ToString();
                 hindkokku_txt.ReadOnly = true;
             }
         }
-        private float HindAB(string itemName)
+        private float HindAB(string toodeNimi)
         {
-            float itemPrice = 0.0f;
+            float toodeHind = 0.0f;
 
             try
             {
                 connect.Open();
-                string query = "SELECT Hind FROM Tootetable WHERE Toodenimetus = @itemName";
-                command = new SqlCommand(query, connect);
-                command.Parameters.AddWithValue("@itemName", itemName);
+                string par = "SELECT Hind FROM Tootetable WHERE Toodenimetus = @toodenim";
+                command = new SqlCommand(par, connect);
+                command.Parameters.AddWithValue("@toodenim", toodeNimi);
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.Read())
                 {
-                    itemPrice = Convert.ToSingle(reader["Hind"]);
+                    toodeHind = Convert.ToSingle(reader["Hind"]);
                 }
 
                 connect.Close();
@@ -96,42 +96,42 @@ namespace Tooded_DB
                 MessageBox.Show($"Probleem: {ex.Message}");
             }
 
-            return itemPrice;
+            return toodeHind;
         }
         private void PiltAB(object sender, EventArgs e)
         {
             if (korv.SelectedItem != null)
             {
-                string selectedItem = korv.SelectedItem.ToString();
-                string imageName = string.Empty;
+                string valToode = korv.SelectedItem.ToString();
+                string piltNim = string.Empty;
 
                 try
                 {
                     connect.Open();
-                    string query = "SELECT Pilt FROM Tootetable WHERE Toodenimetus = @itemName";
-                    command = new SqlCommand(query, connect);
-                    command.Parameters.AddWithValue("@itemName", selectedItem);
+                    string par = "SELECT Pilt FROM Tootetable WHERE Toodenimetus = @Toodenimi";
+                    command = new SqlCommand(par, connect);
+                    command.Parameters.AddWithValue("@Toodenimi", valToode);
                     SqlDataReader reader = command.ExecuteReader();
 
                     if (reader.Read())
                     {
-                        imageName = reader["Pilt"].ToString();
-                        string imagePath = Path.Combine(Path.GetFullPath(@"..\..\Images"), imageName);
+                        piltNim = reader["Pilt"].ToString();
+                        string imagePath = Path.Combine(Path.GetFullPath(@"..\..\Images"), piltNim);
                         if (File.Exists(imagePath))
                         {
-                            Image img = Image.FromFile(imagePath);
+                            Image pilt = Image.FromFile(imagePath);
                             val_toode_pb.SizeMode = PictureBoxSizeMode.StretchImage;
                             val_toode_pb.ClientSize = new Size(150, 150);
-                            val_toode_pb.Image = (Image)(new Bitmap(img, val_toode_pb.ClientSize));
+                            val_toode_pb.Image = (Image)(new Bitmap(pilt, val_toode_pb.ClientSize));
                         }
                         else
                         {
-                            MessageBox.Show($"Pilt '{imageName}' ei ole leitud.");
+                            MessageBox.Show($"Pilt '{piltNim}' ei ole leitud.");
                         }
                     }
                     else
                     {
-                        MessageBox.Show($"Pilt '{selectedItem}' ei ole leitud.");
+                        MessageBox.Show($"Pilt '{valToode}' ei ole leitud.");
                     }
                     connect.Close();
                 }
@@ -157,7 +157,7 @@ namespace Tooded_DB
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    string savePath = saveFileDialog.FileName;
+                    string salvestaMapp = saveFileDialog.FileName;
 
                     document = new Document();
                     var page = document.Pages.Add();
@@ -181,15 +181,16 @@ namespace Tooded_DB
                     }
 
                     page.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("==============================================="));
-                    var totalPriceText = new Aspose.Pdf.Text.TextFragment($"                           Kokku maksta: {totalPriceSum}€");
-                    totalPriceText.TextState.Font = FontRepository.FindFont("Arial");
-                    totalPriceText.TextState.FontSize = 12;
-                    page.Paragraphs.Add(totalPriceText);
+                    var KoguHinnaTekst = new Aspose.Pdf.Text.TextFragment($"                           Kokku maksta: {KoguhinnaSum}€");
+                    KoguHinnaTekst.TextState.Font = FontRepository.FindFont("Arial");
+                    KoguHinnaTekst.TextState.FontSize = 12;
+                    page.Paragraphs.Add(KoguHinnaTekst);
 
-                    document.Save(savePath);
+                    document.Save(salvestaMapp);
                     document.Dispose();
 
                     MessageBox.Show("Arve salvestatud!", "Teavitus");
+                    SaadaArve(salvestaMapp);
                 }
             }
             catch (Exception ex)
@@ -200,75 +201,75 @@ namespace Tooded_DB
         private void Kviitung(object sender, EventArgs e)
         {
             Tooded_list.Clear();
-            totalPriceSum = 0;
+            KoguhinnaSum = 0;
 
-            var uniqueItems = korv.Items.Cast<string>().Distinct().ToList();
+            var unikToode = korv.Items.Cast<string>().Distinct().ToList();
 
-            foreach (var item in uniqueItems)
+            foreach (var item in unikToode)
             {
-                string itemName = item.ToString();
-                float itemPrice = HindAB(itemName);
-                int quantity = korv.Items.Cast<string>().Count(i => i == itemName);
-                float totalPrice = itemPrice * quantity;
+                string toodeNimi = item.ToString();
+                float toodeHind = HindAB(toodeNimi);
+                int Kogus = korv.Items.Cast<string>().Count(i => i == toodeNimi);
+                float KoguHinnaSum = toodeHind * Kogus;
 
-                Tooded_list.Add($"{itemName}\t{itemPrice + "€"}\t{quantity}\t{totalPrice + "€"}");
+                Tooded_list.Add($"{toodeNimi}\t{toodeHind + "€"}\t{Kogus}\t{KoguHinnaSum + "€"}");
 
-                totalPriceSum += totalPrice;
+                KoguhinnaSum += KoguHinnaSum;
             }
 
             if (allhind)
             {
-                float discountedTotalPrice = totalPriceSum * 0.95f;
-                float discountedItemPrice = float.Parse(hind_txt.Text) * 0.95f;
-                float discountedTotalKokku = float.Parse(hindkokku_txt.Text) * 0.95f;
+                float allhinnatudKoguhinnaSum = KoguhinnaSum * 0.95f;
+                float allhinnatudtoodeHinne = float.Parse(hind_txt.Text) * 0.95f;
+                float allhinnatudkoguSum = float.Parse(hindkokku_txt.Text) * 0.95f;
 
-                totalPriceSum = discountedTotalPrice;
-                hind_txt.Text = discountedItemPrice.ToString();
-                hindkokku_txt.Text = discountedTotalKokku.ToString();
+                KoguhinnaSum = allhinnatudKoguhinnaSum;
+                hind_txt.Text = allhinnatudtoodeHinne.ToString();
+                hindkokku_txt.Text = allhinnatudkoguSum.ToString();
             }
         }
-        private void SaadaArve_btn_Click(object sender, EventArgs e)
+        private void SaadaArve(string filePath)
         {
-            string adress = Interaction.InputBox("Sisesta e-mail", "Kuhu saada", "marina.oleinik@tthk.ee");
+            string address = Interaction.InputBox("Sisesta e-mail", "Kuhu saada", "sinunimionmuarvuti@gmail.com");
             try
             {
                 MailMessage mail = new MailMessage();
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
                 {
                     Port = 587,
-                    //string password = Interaction.InputBox("Sisesta salasõna");
-                    Credentials = new System.Net.NetworkCredential("mvc.programmeerimine@gmail.com", "3.Kuursus"), //kellelt email,password
-                    EnableSsl = true
+                    EnableSsl = true,
+                    Credentials = new System.Net.NetworkCredential("sinunimionmuarvuti@gmail.com", "hsdj fzlu kfkd cnjo")                   
                 };
-                mail.From = new MailAddress("mvc.programmeerimine@gmail.com");
-                mail.To.Add(adress);//kellele
+                mail.From = new MailAddress("sinunimionmuarvuti@gmail.com");
+                mail.To.Add(address);
                 mail.Subject = "Arve";
                 mail.Body = "Arve on ostetud ja ta on maanuses";
-                mail.Attachments.Add(new Attachment(@"..\..\Arved\Arve_.pdf"));
+                mail.Attachments.Add(new Attachment(filePath));
+
                 smtpClient.Send(mail);
-                MessageBox.Show("Arve oli saadetud mailile: " + adress);
+                MessageBox.Show("Arve oli saadetud mailile: " + address);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Viga");
+                MessageBox.Show($"Viga: {ex.Message}");
             }
         }
         private float ArvutaKorvi()
         {
-            float totalPrice = 0.0f;
+            float Koguhind = 0.0f;
 
             foreach (var item in korv.Items)
             {
-                float itemPrice = HindAB(item.ToString());
-                totalPrice += itemPrice;
+                float toodeHind = HindAB(item.ToString());
+                Koguhind += toodeHind;
             }
 
-            return totalPrice;
+            return Koguhind;
         }
         private void Allhindkontroll()
         {
             Pood pood = Application.OpenForms.OfType<Pood>().FirstOrDefault();
-            if (pood != null && pood.LoggedInFromLogin)
+            if (pood != null && pood.LoginlogVormist)
             {
                 allhind = true;
                 MessageBox.Show("Olete sisseloginud, ehk saate 5% soodustust.");

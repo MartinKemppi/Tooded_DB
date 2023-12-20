@@ -142,7 +142,7 @@ namespace Tooded_DB
             this.Controls.Add(this.login_txt);
             this.Controls.Add(this.salasona_txt);
             this.Name = "Login";
-            this.Text = "Form2";
+            this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.pood_logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -20,7 +20,7 @@ namespace Tooded_DB
             InitializeComponent();
             Pildid();
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void Logi_sisse(object sender, EventArgs e)
         {           
             Login loginForm = new Login();
             loginForm.Show();
